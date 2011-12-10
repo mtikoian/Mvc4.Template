@@ -1,0 +1,8 @@
+install_to 'lib' 
+chew 'machine.specifications' 
+chew 'elmah' 
+chew 'dotless' 
+chew 'log4net'
+chew 'EntityFramework.SqlServerCompact' 
+chew 'MvcScaffolding' 
+chew 'DataAnnotationsExtensions.MVC3' 
