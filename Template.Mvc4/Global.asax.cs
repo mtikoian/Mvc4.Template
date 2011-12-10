@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Template.Mvc4.Models;
+using System.Data.Entity;
 
 namespace Template.Mvc4
 {
@@ -35,6 +37,8 @@ namespace Template.Mvc4
 
          RegisterGlobalFilters(GlobalFilters.Filters);
          RegisterRoutes(RouteTable.Routes);
+
+         Database.SetInitializer(new DropCreateDatabaseIfModelChanges<TemplateMvc4Context>());
       }
    }
 }
