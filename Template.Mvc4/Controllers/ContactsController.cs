@@ -33,7 +33,12 @@ namespace Template.Mvc4.Controllers
 
     public JsonResult KnockoutIndex()
     {
-      return Json(contactRepository.All, JsonRequestBehavior.AllowGet);
+      var contacts = from c in contactRepository.All
+                     select new {c.Id, c.FirstName, c.LastName, c.Title};
+
+      var jsonResult = new JsonResult()
+                         {JsonRequestBehavior = JsonRequestBehavior.AllowGet, Data = contacts};
+      return jsonResult;
     }
 
     public ViewResult Index()
@@ -84,10 +89,15 @@ namespace Template.Mvc4.Controllers
     [HttpPost]
     public ActionResult Edit(Contact contact)
     {
+      TryUpdateModel(contact);
       if (ModelState.IsValid)
       {
         contactRepository.InsertOrUpdate(contact);
         contactRepository.Save();
+        if (Request.IsAjaxRequest())
+        {
+          return Json(contact, JsonRequestBehavior.AllowGet);
+        }
         return RedirectToAction("Index");
       }
       else

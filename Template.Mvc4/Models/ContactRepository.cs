@@ -33,6 +33,7 @@ namespace Template.Mvc4.Models
 
         public void InsertOrUpdate(Contact contact)
         {
+          contact.ModifyDate = DateTime.Now;
             if (contact.Id == default(int)) {
                 // New entity
                 context.Contacts.Add(contact);

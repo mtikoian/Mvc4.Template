@@ -26,13 +26,20 @@ $ ->
       viewModel.contacts.remove itemToRemove
 
     $(document).on "click", ".contact-edit", ->
-      $("#contactDialog").dialog buttons:
-        Save: ->
-          name = undefined
-          $(this).dialog "close"
-          viewModel.selectedContact().commit()
+      $("#contactDialog").dialog 
+        buttons:
+          Save: ->
+            name = undefined
+            viewModel.selectedContact().commit(); 
+            $(this).dialog "close"
+            CrudHelpers.ajaxUpdate "edit", 
+              ko.toJSON viewModel.selectedContact(),
+              (data) -> humane data
 
-        Cancel: ->
-          $(this).dialog "close"
+          Cancel: ->
+            $(this).dialog "close",
+        width: 500
+        title: "Edit Contact"
+         
 
     ko.applyBindings viewModel

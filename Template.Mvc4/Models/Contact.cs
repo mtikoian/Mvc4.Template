@@ -10,7 +10,8 @@ namespace Template.Mvc4.Models
   {
     public int Id { get; set; }
     public string Title { get; set; }
-    public DateTime ModifyDate { get; private set; }
+    [DisplayFormat(DataFormatString = "mm:hh:ss")]
+    public DateTime ModifyDate { get; set; }
   }
 
   public class Contact : ModelBase

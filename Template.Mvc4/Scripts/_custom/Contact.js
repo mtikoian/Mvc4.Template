@@ -33,13 +33,18 @@
             Save: function() {
               var name;
               name = void 0;
+              viewModel.selectedContact().commit();
               $(this).dialog("close");
-              return viewModel.selectedContact().commit();
+              return CrudHelpers.ajaxUpdate("edit", ko.toJSON(viewModel.selectedContact(), function(data) {
+                return humane(data);
+              }));
             },
             Cancel: function() {
               return $(this).dialog("close");
             }
-          }
+          },
+          width: 500,
+          title: "Edit Contact"
         });
       });
       return ko.applyBindings(viewModel);

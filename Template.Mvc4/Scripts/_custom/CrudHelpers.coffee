@@ -6,10 +6,11 @@ $ ->
       this.ajaxModify url, dataToSave, "POST", "Tag added.", callback
 
     ajaxUpdate: (url, dataToSave, successCallback) ->
-      ajaxModify url, dataToSave, "PUT", "Tag updated.", successCallback
+      dataToSave.ModifyDate = new Date()
+      this.ajaxModify url, dataToSave, "POST", "Tag updated.", successCallback
 
     ajaxDelete: (url) ->
-      ajaxModify url, null, "DELETE", "Tag Deleted.", successCallback
+      this.ajaxModify url, null, "DELETE", "Tag Deleted.", successCallback
 
     ajaxModify: (url, dataToSave, httpVerb, successMessage, callback) ->
       $.ajax url, 

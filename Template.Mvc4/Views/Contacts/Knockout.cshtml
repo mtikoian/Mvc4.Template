@@ -2,35 +2,64 @@
 @{
   ViewBag.Title = "Knockout Contacts";
 }
-
 <div id="contactsList">
   <div class="box-content">
     <input type="text" placeholder="Add New Contact" data-bind="value: contactToAdd, valueUpdate: 'afterkeydown', executeOnEnter: addContact" />
-    <button data-bind="click: addContact">+ Add</button>
-    
+    <button data-bind="click: addContact">
+      + Add</button>
     <ul data-bind="foreach: contacts">
-        <li class="contactItem" data-bind="click: $parent.selectContact">
-          <span data-bind="text: Title"></span>
-          <span data-bind="text: FirstName"></span>
-          <span data-bind="text: LastName"></span>
-          <div>
-            <a href="#" class="contact-edit">Edit</a>
-            <a href="#" class="contact-delete">Delete</a>
-          </div>
-        </li>
+      <li class="contactItem" data-bind="click: $parent.selectContact"><span data-bind="text: Title">
+      </span><span data-bind="text: FirstName"></span><span data-bind="text: LastName"></span>
+        <div>
+          <a href="#" class="contact-edit">Edit</a> <a href="#" class="contact-delete">Delete</a>
+        </div>
+      </li>
     </ul>
-
   </div>
 </div>
-
 <div id="contactDialog" data-bind="with: selectedContact">
-  Contact FirstName:
-  <input type="text" data-bind="value: FirstName"/>
+  <div>
+    <label>
+      Id:</label>
+    <input type="text" readonly="true" data-bind="value: Id" />
+  </div>
+  <div>
+    <label>
+      Title:</label>
+    <input type="text" data-bind="value: Title" />
+  </div>
+  <div>
+    <label>
+      First Name:</label>
+    <input type="text" data-bind="value: FirstName" />
+  </div>
+  <div>
+    <label>
+      Last Name:</label>
+    <input type="text" data-bind="value: LastName" />
+  </div>
+  <div>
+    <label>
+      Last Modified:</label>
+    <input class="smaller" disabled type="datetime" />
+  </div>
 </div>
-
 @section pageScripts
 {
-  <script src="@Url.Content("~/Scripts/_custom/CrudHelpers.js")" type="text/javascript"></script>  
-  <script src="@Url.Content("~/Scripts/_custom/Contact.js")" type="text/javascript"></script>  
+  <script src="@Url.Content("~/Scripts/_custom/CrudHelpers.js")" type="text/javascript"></script>
+  <script src="@Url.Content("~/Scripts/_custom/Contact.js")" type="text/javascript"></script>
 }
-
+<style type="text/css">
+  #contactDialog label
+  {
+    width: 120px;
+    display: inline-block;
+    text-align:right;
+  }
+  
+  #contactDialog input
+  {
+    display: inline-block;
+    width:250px;
+  }
+</style>
