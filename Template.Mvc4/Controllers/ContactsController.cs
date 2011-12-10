@@ -26,6 +26,16 @@ namespace Template.Mvc4.Controllers
 
     #endregion //-- Constructor --
 
+    public ViewResult Knockout()
+    {
+      return View();
+    }
+
+    public JsonResult KnockoutIndex()
+    {
+      return Json(contactRepository.All, JsonRequestBehavior.AllowGet);
+    }
+
     public ViewResult Index()
     {
       return View(contactRepository.All);
@@ -50,6 +60,10 @@ namespace Template.Mvc4.Controllers
       {
         contactRepository.InsertOrUpdate(contact);
         contactRepository.Save();
+        if (Request.IsAjaxRequest())
+        {
+          return Json(contact, JsonRequestBehavior.AllowGet);
+        }
         return RedirectToAction("Index");
       }
       else

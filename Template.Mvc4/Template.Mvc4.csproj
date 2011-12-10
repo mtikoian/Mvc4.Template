@@ -218,6 +218,16 @@
     <Content Include="Scripts\ko-protected-observable.js" />
     <Content Include="Scripts\modernizr-2.0.6-development-only.js" />
     <Content Include="Scripts\plugins.js" />
+    <Content Include="Scripts\_custom\Contact.js">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Contact.coffee</DependentUpon>
+    </Content>
+    <Content Include="Scripts\_custom\CrudHelpers.js">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrudHelpers.coffee</DependentUpon>
+    </Content>
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -289,6 +299,15 @@
     <None Include="Scripts\ko-execute-on-enter.coffee">
       <Generator>CoffeeScriptGenerator</Generator>
       <LastGenOutput>ko-execute-on-enter.js</LastGenOutput>
+    </None>
+    <Content Include="Views\Contacts\Knockout.cshtml" />
+    <None Include="Scripts\_custom\Contact.coffee">
+      <Generator>CoffeeScriptGenerator</Generator>
+      <LastGenOutput>Contact.js</LastGenOutput>
+    </None>
+    <None Include="Scripts\_custom\CrudHelpers.coffee">
+      <Generator>CoffeeScriptGenerator</Generator>
+      <LastGenOutput>CrudHelpers.js</LastGenOutput>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

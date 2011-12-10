@@ -1,0 +1,36 @@
+@model IEnumerable<Template.Mvc4.Models.Contact>
+@{
+  ViewBag.Title = "Knockout Contacts";
+}
+
+<div id="contactsList">
+  <div class="box-content">
+    <input type="text" placeholder="Add New Contact" data-bind="value: contactToAdd, valueUpdate: 'afterkeydown', executeOnEnter: addContact" />
+    <button data-bind="click: addContact">+ Add</button>
+    
+    <ul data-bind="foreach: contacts">
+        <li class="contactItem" data-bind="click: $parent.selectContact">
+          <span data-bind="text: Title"></span>
+          <span data-bind="text: FirstName"></span>
+          <span data-bind="text: LastName"></span>
+          <div>
+            <a href="#" class="contact-edit">Edit</a>
+            <a href="#" class="contact-delete">Delete</a>
+          </div>
+        </li>
+    </ul>
+
+  </div>
+</div>
+
+<div id="contactDialog" data-bind="with: selectedContact">
+  Contact FirstName:
+  <input type="text" data-bind="value: FirstName"/>
+</div>
+
+@section pageScripts
+{
+  <script src="@Url.Content("~/Scripts/_custom/CrudHelpers.js")" type="text/javascript"></script>  
+  <script src="@Url.Content("~/Scripts/_custom/Contact.js")" type="text/javascript"></script>  
+}
+

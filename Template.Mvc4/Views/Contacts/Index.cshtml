@@ -1,53 +1,50 @@
 @model IEnumerable<Template.Mvc4.Models.Contact>
-
 @{
-    ViewBag.Title = "Index";
+  ViewBag.Title = "Index";
 }
-
-<h2>Index</h2>
+<h2>
+  Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+  @Html.ActionLink("Create New", "Create")
 </p>
 <table>
+  <tr>
+    <th>
+    </th>
+    <th>
+      Title
+    </th>
+    <th>
+      ModifyDate
+    </th>
+    <th>
+      FirstName
+    </th>
+    <th>
+      LastName
+    </th>
+  </tr>
+  @foreach (var item in Model)
+  {
     <tr>
-        <th></th>
-        <th>
-            Title
-        </th>
-        <th>
-            ModifyDate
-        </th>
-        <th>
-            FirstName
-        </th>
-        <th>
-            LastName
-        </th>
+      <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+      </td>
+      <td>
+        @item.Title
+      </td>
+      <td>
+        @String.Format("{0:g}", item.ModifyDate)
+      </td>
+      <td>
+        @item.FirstName
+      </td>
+      <td>
+        @item.LastName
+      </td>
     </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-        <td>
-			@item.Title
-        </td>
-        <td>
-			@String.Format("{0:g}", item.ModifyDate)
-        </td>
-        <td>
-			@item.FirstName
-        </td>
-        <td>
-			@item.LastName
-        </td>
-    </tr>
-}
-
+  }
 </table>
-
-
