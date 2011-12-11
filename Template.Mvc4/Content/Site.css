@@ -96,13 +96,13 @@ h5, h6 {
 }
 
     .main-content {
-        background: url("../images/accent.png") no-repeat;
+        background: url("../content/images/accent.png") no-repeat;
         padding-left: 10px;
         padding-top: 30px;
     }
 
     .featured + .main-content {
-        background: url("../images/heroaccent.png") no-repeat;
+        background: url("../content/images/heroaccent.png") no-repeat;
     }
 
 footer {
@@ -245,15 +245,15 @@ ol.round {
     }
     
         ol.round li.one {
-            background: url("../images/orderedlistOne.png") no-repeat;        
+            background: url("../content/images/orderedlistOne.png") no-repeat;        
         }
     
         ol.round li.two {
-            background: url("../images/orderedlistTwo.png") no-repeat;        
+            background: url("../content/images/orderedlistTwo.png") no-repeat;        
         }
     
         ol.round li.three {
-            background: url("../images/orderedlistThree.png") no-repeat;        
+            background: url("../content/images/orderedlistThree.png") no-repeat;        
         }
     
 /* content */  
@@ -273,7 +273,7 @@ aside {
     }
     
      aside ul li {
-        background: url("../images/bullet.png") no-repeat 0 50%;
+        background: url("../content/images/bullet.png") no-repeat 0 50%;
         padding: 2px 0 2px 20px;
      }
      
@@ -454,11 +454,11 @@ ul#social li {
     }
         
     a.facebook {
-        background: url("../images/facebook.png") no-repeat;
+        background: url("../content/images/facebook.png") no-repeat;
     }
         
     a.twitter {
-        background: url("../images/twitter.png") no-repeat;
+        background: url("../content/images/twitter.png") no-repeat;
     }
         
         

@@ -1,0 +1,54 @@
+﻿<style id="liveStyles" type="text/css"></style>
+<input id="stylesButton" type="button" class="btn info" value="Styles" />
+<div id="less-panel">
+  <div id="less-tab">
+    <textarea id="cssEditor" name="cssEditor" rows="5" cols="300">
+   </textarea>
+  </div>
+  <div id="less-controls">
+    <a href="http://lesscss.org" target="_blank">LessCSS.org</a>
+    <button id="apply-style">
+      Apply</button>
+  </div>
+</div>
+<style type="text/css">
+  #less-panel
+  {
+    position: fixed;
+    bottom: 0;
+    height: 350px;
+    width: 100%;
+    background: blue;
+  }
+  #less-tab
+  {
+    margin: 5px;
+    background: #fff;
+  }
+  #less-controls
+  {
+    background: red;
+  }
+</style>
+<div>
+  <script type="text/javascript">
+    $(function () {
+      var editor = CodeMirror.fromTextArea(document.getElementById("cssEditor"), {});
+
+      $("#apply-style").click(function () {
+        // Get editor text
+        var editorText = editor.getValue();
+        // Parse 
+        less.Parser().parse(editorText, function (error, root) {
+          if (!(error)) {
+            // Convert to CSS
+            var convertedCss = root.toCSS();
+            // Apply css to window
+            $("#liveStyles")[0].innerText = convertedCss;
+          }
+        });
+      });
+      
+    });
+  </script>
+</div>

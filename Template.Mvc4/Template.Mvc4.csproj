@@ -138,9 +138,141 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\code-mirror\lib\codemirror.css" />
+    <Content Include="Content\code-mirror\lib\codemirror.js" />
+    <Content Include="Content\code-mirror\lib\util\foldcode.js" />
+    <Content Include="Content\code-mirror\lib\util\javascript-hint.js" />
+    <Content Include="Content\code-mirror\lib\util\overlay.js" />
+    <Content Include="Content\code-mirror\lib\util\runmode.js" />
+    <Content Include="Content\code-mirror\lib\util\simple-hint.css" />
+    <Content Include="Content\code-mirror\lib\util\simple-hint.js" />
+    <Content Include="Content\code-mirror\mode\clike\clike.js" />
+    <Content Include="Content\code-mirror\mode\clike\index.html" />
+    <Content Include="Content\code-mirror\mode\clojure\clojure.js" />
+    <Content Include="Content\code-mirror\mode\clojure\index.html" />
+    <Content Include="Content\code-mirror\mode\coffeescript\coffeescript.js" />
+    <Content Include="Content\code-mirror\mode\coffeescript\index.html" />
+    <Content Include="Content\code-mirror\mode\css\css.js" />
+    <Content Include="Content\code-mirror\mode\css\index.html" />
+    <Content Include="Content\code-mirror\mode\diff\diff.css" />
+    <Content Include="Content\code-mirror\mode\diff\diff.js" />
+    <Content Include="Content\code-mirror\mode\diff\index.html" />
+    <Content Include="Content\code-mirror\mode\gfm\gfm.js" />
+    <Content Include="Content\code-mirror\mode\gfm\index.html" />
+    <Content Include="Content\code-mirror\mode\groovy\groovy.js" />
+    <Content Include="Content\code-mirror\mode\groovy\index.html" />
+    <Content Include="Content\code-mirror\mode\haskell\haskell.js" />
+    <Content Include="Content\code-mirror\mode\haskell\index.html" />
+    <Content Include="Content\code-mirror\mode\htmlmixed\htmlmixed.js" />
+    <Content Include="Content\code-mirror\mode\htmlmixed\index.html" />
+    <Content Include="Content\code-mirror\mode\javascript\index.html" />
+    <Content Include="Content\code-mirror\mode\javascript\javascript.js" />
+    <Content Include="Content\code-mirror\mode\jinja2\index.html" />
+    <Content Include="Content\code-mirror\mode\jinja2\jinja2.js" />
+    <Content Include="Content\code-mirror\mode\lua\index.html" />
+    <Content Include="Content\code-mirror\mode\lua\lua.js" />
+    <Content Include="Content\code-mirror\mode\markdown\index.html" />
+    <Content Include="Content\code-mirror\mode\markdown\markdown.css" />
+    <Content Include="Content\code-mirror\mode\markdown\markdown.js" />
+    <Content Include="Content\code-mirror\mode\ntriples\index.html" />
+    <Content Include="Content\code-mirror\mode\ntriples\ntriples.js" />
+    <Content Include="Content\code-mirror\mode\pascal\index.html" />
+    <Content Include="Content\code-mirror\mode\pascal\pascal.js" />
+    <Content Include="Content\code-mirror\mode\perl\index.html" />
+    <Content Include="Content\code-mirror\mode\perl\perl.js" />
+    <Content Include="Content\code-mirror\mode\php\index.html" />
+    <Content Include="Content\code-mirror\mode\php\php.js" />
+    <Content Include="Content\code-mirror\mode\plsql\index.html" />
+    <Content Include="Content\code-mirror\mode\plsql\plsql.js" />
+    <Content Include="Content\code-mirror\mode\python\index.html" />
+    <Content Include="Content\code-mirror\mode\python\LICENSE.txt" />
+    <Content Include="Content\code-mirror\mode\python\python.js" />
+    <Content Include="Content\code-mirror\mode\rpm\changes\changes.js" />
+    <Content Include="Content\code-mirror\mode\rpm\changes\index.html" />
+    <Content Include="Content\code-mirror\mode\rpm\spec\index.html" />
+    <Content Include="Content\code-mirror\mode\rpm\spec\spec.css" />
+    <Content Include="Content\code-mirror\mode\rpm\spec\spec.js" />
+    <Content Include="Content\code-mirror\mode\rst\index.html" />
+    <Content Include="Content\code-mirror\mode\rst\rst.css" />
+    <Content Include="Content\code-mirror\mode\rst\rst.js" />
+    <Content Include="Content\code-mirror\mode\ruby\index.html" />
+    <Content Include="Content\code-mirror\mode\ruby\ruby.js" />
+    <Content Include="Content\code-mirror\mode\rust\index.html" />
+    <Content Include="Content\code-mirror\mode\rust\rust.js" />
+    <Content Include="Content\code-mirror\mode\r\index.html" />
+    <Content Include="Content\code-mirror\mode\r\r.js" />
+    <Content Include="Content\code-mirror\mode\scheme\index.html" />
+    <Content Include="Content\code-mirror\mode\scheme\scheme.js" />
+    <Content Include="Content\code-mirror\mode\smalltalk\index.html" />
+    <Content Include="Content\code-mirror\mode\smalltalk\smalltalk.js" />
+    <Content Include="Content\code-mirror\mode\sparql\index.html" />
+    <Content Include="Content\code-mirror\mode\sparql\sparql.js" />
+    <Content Include="Content\code-mirror\mode\stex\index.html" />
+    <Content Include="Content\code-mirror\mode\stex\stex.js" />
+    <Content Include="Content\code-mirror\mode\tiddlywiki\index.html" />
+    <Content Include="Content\code-mirror\mode\tiddlywiki\tiddlywiki.css" />
+    <Content Include="Content\code-mirror\mode\tiddlywiki\tiddlywiki.js" />
+    <Content Include="Content\code-mirror\mode\velocity\index.html" />
+    <Content Include="Content\code-mirror\mode\velocity\velocity.js" />
+    <Content Include="Content\code-mirror\mode\xmlpure\index.html" />
+    <Content Include="Content\code-mirror\mode\xmlpure\xmlpure.js" />
+    <Content Include="Content\code-mirror\mode\xml\index.html" />
+    <Content Include="Content\code-mirror\mode\xml\xml.js" />
+    <Content Include="Content\code-mirror\mode\yaml\index.html" />
+    <Content Include="Content\code-mirror\mode\yaml\yaml.js" />
+    <Content Include="Content\code-mirror\theme\cobalt.css" />
+    <Content Include="Content\code-mirror\theme\default.css" />
+    <Content Include="Content\code-mirror\theme\eclipse.css" />
+    <Content Include="Content\code-mirror\theme\elegant.css" />
+    <Content Include="Content\code-mirror\theme\monokai.css" />
+    <Content Include="Content\code-mirror\theme\neat.css" />
+    <Content Include="Content\code-mirror\theme\night.css" />
+    <Content Include="Content\code-mirror\theme\rubyblue.css" />
     <Content Include="Content\humane-js\bigbox.css" />
     <Content Include="Content\humane-js\boldlight.css" />
     <Content Include="Content\humane-js\jackedup.css" />
+    <Content Include="Content\Images\accent.png" />
+    <Content Include="Content\Images\aspNetHome.png" />
+    <Content Include="Content\Images\bullet.png" />
+    <Content Include="Content\Images\facebook.png" />
+    <Content Include="Content\Images\findHosting.png" />
+    <Content Include="Content\Images\heroAccent.png" />
+    <Content Include="Content\Images\NuGetGallery.png" />
+    <Content Include="Content\Images\orderedListOne.png" />
+    <Content Include="Content\Images\orderedListThree.png" />
+    <Content Include="Content\Images\orderedListTwo.png" />
+    <Content Include="Content\Images\twitter.png" />
+    <Content Include="Content\Images\windowsLive.png" />
+    <Content Include="Content\Scripts\AjaxLogin.js" />
+    <Content Include="Content\Scripts\_custom\CrudHelpers.js">
+      <DependentUpon>CrudHelpers.coffee</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Content>
+    <Content Include="Content\Scripts\humane.js" />
+    <Content Include="Content\Scripts\jquery-1.7.1-vsdoc.js" />
+    <Content Include="Content\Scripts\jquery-1.7.1.js" />
+    <Content Include="Content\Scripts\jquery-1.7.1.min.js" />
+    <Content Include="Content\Scripts\jquery-ui-1.8.16.js" />
+    <Content Include="Content\Scripts\jquery-ui-1.8.16.min.js" />
+    <Content Include="Content\Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Content\Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Content\Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Content\Scripts\jquery.validate.js" />
+    <Content Include="Content\Scripts\jquery.validate.min.js" />
+    <Content Include="Content\Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Content\Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Content\Scripts\knockout-1.3.0beta.debug.js" />
+    <Content Include="Content\Scripts\knockout-1.3.0beta.js" />
+    <Content Include="Content\Scripts\_custom\ko-execute-on-enter.js">
+      <DependentUpon>ko-execute-on-enter.coffee</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Content>
+    <Content Include="Content\Scripts\_custom\ko-protected-observable.js" />
+    <Content Include="Content\Scripts\less-1.1.5.js" />
+    <Content Include="Content\Scripts\modernizr-2.0.6-development-only.js" />
+    <Content Include="Content\Scripts\plugins.js" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -198,38 +330,10 @@
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Global.asax" />
-    <Content Include="Scripts\humane.js" />
-    <Content Include="Scripts\jquery-1.7.1-vsdoc.js" />
-    <Content Include="Scripts\jquery-1.7.1.js" />
-    <Content Include="Scripts\jquery-1.7.1.min.js" />
-    <Content Include="Scripts\jquery-ui-1.8.16.js" />
-    <Content Include="Scripts\jquery-ui-1.8.16.min.js" />
-    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
-    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
-    <Content Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery.validate.js" />
-    <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\knockout-1.3.0beta.debug.js" />
-    <Content Include="Scripts\knockout-1.3.0beta.js" />
-    <Content Include="Scripts\ko-execute-on-enter.js">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ko-execute-on-enter.coffee</DependentUpon>
-    </Content>
-    <Content Include="Scripts\ko-protected-observable.js" />
-    <Content Include="Scripts\modernizr-2.0.6-development-only.js" />
-    <Content Include="Scripts\plugins.js" />
-    <Content Include="Scripts\_custom\Contact.js">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
+    <Content Include="Views\Contacts\Contact.js">
       <DependentUpon>Contact.coffee</DependentUpon>
-    </Content>
-    <Content Include="Scripts\_custom\CrudHelpers.js">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CrudHelpers.coffee</DependentUpon>
     </Content>
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -239,19 +343,6 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Content\Site.css" />
-    <Content Include="Scripts\AjaxLogin.js" />
-    <Content Include="Images\accent.png" />
-    <Content Include="Images\bullet.png" />
-    <Content Include="Images\facebook.png" />
-    <Content Include="Images\heroAccent.png" />
-    <Content Include="Images\orderedListOne.png" />
-    <Content Include="Images\orderedListTwo.png" />
-    <Content Include="Images\orderedListThree.png" />
-    <Content Include="Images\twitter.png" />
-    <Content Include="Images\windowsLive.png" />
-    <Content Include="Images\aspNetHome.png" />
-    <Content Include="Images\NuGetGallery.png" />
-    <Content Include="Images\findHosting.png" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Account\ChangePassword.cshtml" />
     <Content Include="Views\Account\ChangePasswordSuccess.cshtml" />
@@ -299,18 +390,25 @@
     <Content Include="Views\Shared\_Header.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Scripts\ko-execute-on-enter.coffee">
+    <None Include="Content\code-mirror\mode\coffeescript\LICENSE" />
+    <None Include="Content\code-mirror\mode\pascal\LICENSE" />
+    <None Include="Content\code-mirror\mode\perl\LICENSE" />
+    <None Include="Content\code-mirror\mode\ruby\LICENSE" />
+    <None Include="Content\code-mirror\mode\r\LICENSE" />
+    <None Include="Content\Scripts\_custom\CrudHelpers.coffee">
+      <Generator>CoffeeScriptGenerator</Generator>
+      <LastGenOutput>CrudHelpers.js</LastGenOutput>
+    </None>
+    <None Include="Content\Scripts\_custom\ko-execute-on-enter.coffee">
       <Generator>CoffeeScriptGenerator</Generator>
       <LastGenOutput>ko-execute-on-enter.js</LastGenOutput>
     </None>
     <Content Include="Views\Contacts\Knockout.cshtml" />
-    <None Include="Scripts\_custom\Contact.coffee">
+    <Content Include="Views\Shared\_LessEditor.cshtml" />
+    <Content Include="Views\Shared\_Head.cshtml" />
+    <None Include="Views\Contacts\Contact.coffee">
       <Generator>CoffeeScriptGenerator</Generator>
       <LastGenOutput>Contact.js</LastGenOutput>
-    </None>
-    <None Include="Scripts\_custom\CrudHelpers.coffee">
-      <Generator>CoffeeScriptGenerator</Generator>
-      <LastGenOutput>CrudHelpers.js</LastGenOutput>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
