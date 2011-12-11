@@ -1,0 +1,32 @@
+﻿<section id="tab-section">
+  <div id="dev-tabs">
+    <ul>
+      <li><a href="#tab-less-editor">Less</a></li>
+      <li><a href="#tab-more">More</a></li>
+    </ul>
+    <div id="tab-less-editor">
+      @Html.Partial("_LessEditor")
+    </div>
+    <div id="tab-more">
+      test</div>
+  </div>
+</section>
+<style type="text/css">
+  #tab-section
+  {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: none;
+  }
+</style>
+<script type="text/javascript">
+  $(function () {
+    $("#dev-tabs").tabs({
+      collapsible: true,
+      fx: { opacity: 'toggle' },
+      selected: -1
+    });
+    $("#tab-section").show();
+  });
+</script>
