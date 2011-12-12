@@ -9,17 +9,17 @@ namespace Template.Mvc4.Api
 {
   public class ContactsApi
   {
-    private readonly IContactRepository contactRepository;
+    private readonly IRepository<Contact> contactRepository;
 
     #region -- Constructor --
     
     public ContactsApi()
-      : this(new ContactRepository())
+      : this(new Repository<Contact>())
     {
       // If you are using Dependency Injection, you can delete the following constructor
     }
 
-    public ContactsApi(IContactRepository contactRepository)
+    public ContactsApi(IRepository<Contact> contactRepository)
     {
       this.contactRepository = contactRepository;
     }

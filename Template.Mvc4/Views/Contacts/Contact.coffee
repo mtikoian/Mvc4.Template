@@ -32,13 +32,16 @@ $ ->
       $("#contactDialog").dialog 
         buttons:
           Save: ->
-            name = undefined
-            viewModel.selectedContact().commit(); 
+            viewModel.selectedContact().commit()
+            currentContact = viewModel.selectedContact()
+            currentContact.ModifyDate = undefined
+            contactId = currentContact.Id()
             $(this).dialog "close"
-            CrudHelpers.ajaxUpdate baseUrl + "/" + viewModel.selectedContact().Id().toString(),  
-              (ko.toJSON viewModel.selectedContact()), 
+            CrudHelpers.ajaxUpdate baseUrl + "/" + contactId,  
+              (ko.toJSON currentContact), 
               (data) ->
                 humane "Contact Id: " + data.Id + " updated."
+                
 
           Cancel: ->
             $(this).dialog "close",

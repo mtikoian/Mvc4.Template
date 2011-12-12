@@ -41,7 +41,7 @@
   <div>
     <label>
       Last Modified:</label>
-    <input class="smaller" disabled type="datetime" />
+    <input class="smaller" disabled type="datetime" data-bind="value: ModifyDate" />
   </div>
 </div>
 @section pageScripts
@@ -54,12 +54,15 @@
   {
     width: 120px;
     display: inline-block;
-    text-align:right;
+    text-align: right;
   }
   
   #contactDialog input
   {
     display: inline-block;
-    width:250px;
+    width: 250px;
   }
+  #contactsList li span { padding: 4px; }
+  
+  .smaller {font-size: x-small !Important; }
 </style>

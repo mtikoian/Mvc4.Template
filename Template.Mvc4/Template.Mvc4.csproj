@@ -177,6 +177,7 @@
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\ContactRepository.cs" />
+    <Compile Include="Models\Repository.cs" />
     <Compile Include="Models\TemplateMvc4Context.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

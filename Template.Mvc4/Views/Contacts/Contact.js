@@ -35,11 +35,13 @@
         return $("#contactDialog").dialog({
           buttons: {
             Save: function() {
-              var name;
-              name = void 0;
+              var contactId, currentContact;
               viewModel.selectedContact().commit();
+              currentContact = viewModel.selectedContact();
+              currentContact.ModifyDate = void 0;
+              contactId = currentContact.Id();
               $(this).dialog("close");
-              return CrudHelpers.ajaxUpdate(baseUrl + "/" + viewModel.selectedContact().Id().toString(), ko.toJSON(viewModel.selectedContact()), function(data) {
+              return CrudHelpers.ajaxUpdate(baseUrl + "/" + contactId, ko.toJSON(currentContact), function(data) {
                 return humane("Contact Id: " + data.Id + " updated.");
               });
             },
