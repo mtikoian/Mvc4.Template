@@ -89,7 +89,7 @@ namespace Template.Mvc4.Controllers
     [HttpPost]
     public ActionResult Edit(Contact contact)
     {
-      TryUpdateModel(contact);
+      //TryUpdateModel(contact);
       if (ModelState.IsValid)
       {
         contactRepository.InsertOrUpdate(contact);
@@ -102,6 +102,10 @@ namespace Template.Mvc4.Controllers
       }
       else
       {
+        if (Request.IsAjaxRequest())
+        {
+          return Json(ModelState, JsonRequestBehavior.AllowGet);
+        }
         return View();
       }
     }
@@ -120,7 +124,10 @@ namespace Template.Mvc4.Controllers
     {
       contactRepository.Delete(id);
       contactRepository.Save();
-
+      if (Request.IsAjaxRequest())
+      {
+        return Json("Contact id: " + id + " deleted.", JsonRequestBehavior.AllowGet);
+      }
       return RedirectToAction("Index");
     }
 

@@ -1,18 +1,17 @@
 $ ->
   $("#contactDialog").hide()
-
-  $.getJSON "/contacts/knockoutindex", (jsonData) ->
+  baseUrl = "/api/contacts"
+  $.getJSON baseUrl, (jsonData) ->
 
     viewModel =
       contacts: ko.observableArray(ko.toProtectedObservableItemArray(jsonData))
       contactToAdd: ko.observable("")
       selectedContact: ko.observable(null)
       addContact: ->
-        #@contacts.push new ko.protectedObservableItem(Name: @contactToAdd())
         newContact = 
          FirstName: @contactToAdd()
         @contactToAdd ""
-        CrudHelpers.ajaxAdd "create", 
+        CrudHelpers.ajaxAdd baseUrl, 
          ko.toJSON newContact
          (data) ->
             viewModel.contacts.push (new ko.protectedObservableItem(data))
@@ -21,9 +20,13 @@ $ ->
         viewModel.selectedContact this
 
     $(document).on "click", ".contact-delete", ->
-      itemToRemove = undefined
       itemToRemove = ko.dataFor(this)
-      viewModel.contacts.remove itemToRemove
+      CrudHelpers.ajaxDelete baseUrl, 
+        viewModel.selectedContact().Id().toString(),
+        (data) -> 
+          viewModel.contacts.remove itemToRemove          
+          humane data
+          
 
     $(document).on "click", ".contact-edit", ->
       $("#contactDialog").dialog 
@@ -32,9 +35,10 @@ $ ->
             name = undefined
             viewModel.selectedContact().commit(); 
             $(this).dialog "close"
-            CrudHelpers.ajaxUpdate "edit", 
-              ko.toJSON viewModel.selectedContact(),
-              (data) -> humane data
+            CrudHelpers.ajaxUpdate baseUrl + "/" + viewModel.selectedContact().Id().toString(),  
+              (ko.toJSON viewModel.selectedContact()), 
+              (data) ->
+                humane "Contact Id: " + data.Id + " updated."
 
           Cancel: ->
             $(this).dialog "close",

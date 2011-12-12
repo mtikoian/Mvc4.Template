@@ -5,14 +5,14 @@
     });
     return window.CrudHelpers = {
       ajaxAdd: function(url, dataToSave, callback) {
-        return this.ajaxModify(url, dataToSave, "POST", "Tag added.", callback);
+        return this.ajaxModify(url, dataToSave, "POST", "add", callback);
       },
       ajaxUpdate: function(url, dataToSave, successCallback) {
         dataToSave.ModifyDate = new Date();
-        return this.ajaxModify(url, dataToSave, "POST", "Tag updated.", successCallback);
+        return this.ajaxModify(url, dataToSave, "PUT", "update", successCallback);
       },
-      ajaxDelete: function(url) {
-        return this.ajaxModify(url, null, "DELETE", "Tag Deleted.", successCallback);
+      ajaxDelete: function(url, dataToSave, successCallback) {
+        return this.ajaxModify(url + "/" + dataToSave, null, "DELETE", "deleted", successCallback);
       },
       ajaxModify: function(url, dataToSave, httpVerb, successMessage, callback) {
         return $.ajax(url, {
@@ -21,11 +21,10 @@
           dataType: 'json',
           contentType: 'application/json',
           success: function(data) {
-            humane(successMessage);
             return callback(data);
           },
-          error: function() {
-            return humane("an error occured");
+          error: function(data) {
+            return humane("An error occured: " + data.responseText);
           }
         });
       }

@@ -1,7 +1,9 @@
 
   $(function() {
+    var baseUrl;
     $("#contactDialog").hide();
-    return $.getJSON("/contacts/knockoutindex", function(jsonData) {
+    baseUrl = "/api/contacts";
+    return $.getJSON(baseUrl, function(jsonData) {
       var viewModel;
       viewModel = {
         contacts: ko.observableArray(ko.toProtectedObservableItemArray(jsonData)),
@@ -13,7 +15,7 @@
             FirstName: this.contactToAdd()
           };
           this.contactToAdd("");
-          return CrudHelpers.ajaxAdd("create", ko.toJSON(newContact), function(data) {
+          return CrudHelpers.ajaxAdd(baseUrl, ko.toJSON(newContact), function(data) {
             return viewModel.contacts.push(new ko.protectedObservableItem(data));
           });
         },
@@ -23,9 +25,11 @@
       };
       $(document).on("click", ".contact-delete", function() {
         var itemToRemove;
-        itemToRemove = void 0;
         itemToRemove = ko.dataFor(this);
-        return viewModel.contacts.remove(itemToRemove);
+        return CrudHelpers.ajaxDelete(baseUrl, viewModel.selectedContact().Id().toString(), function(data) {
+          viewModel.contacts.remove(itemToRemove);
+          return humane(data);
+        });
       });
       $(document).on("click", ".contact-edit", function() {
         return $("#contactDialog").dialog({
@@ -35,9 +39,9 @@
               name = void 0;
               viewModel.selectedContact().commit();
               $(this).dialog("close");
-              return CrudHelpers.ajaxUpdate("edit", ko.toJSON(viewModel.selectedContact(), function(data) {
-                return humane(data);
-              }));
+              return CrudHelpers.ajaxUpdate(baseUrl + "/" + viewModel.selectedContact().Id().toString(), ko.toJSON(viewModel.selectedContact()), function(data) {
+                return humane("Contact Id: " + data.Id + " updated.");
+              });
             },
             Cancel: function() {
               return $(this).dialog("close");

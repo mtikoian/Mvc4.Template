@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Services;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Microsoft.ApplicationServer.Http;
 using Template.Mvc4.Models;
 using System.Data.Entity;
+using Template.Mvc4.Api;
 
 namespace Template.Mvc4
 {
@@ -21,7 +24,11 @@ namespace Template.Mvc4
 
       public static void RegisterRoutes(RouteCollection routes)
       {
+        
          routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+        
+         var config = new HttpConfiguration() { EnableTestClient = true };
+         routes.MapServiceRoute<ContactsApi>("api/contacts", config);
 
          routes.MapRoute(
              "Default", // Route name
