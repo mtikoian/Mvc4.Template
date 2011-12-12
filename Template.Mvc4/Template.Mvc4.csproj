@@ -169,19 +169,28 @@
     <Compile Include="App_Start\EntityFramework.SqlServerCompact.cs" />
     <Compile Include="App_Start\RegisterClientValidationExtensions.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\ContactsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\PurchasesController.cs" />
+    <Compile Include="Controllers\StoresController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\CategoryRepository.cs" />
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\ContactRepository.cs" />
+    <Compile Include="Models\ProductRepository.cs" />
+    <Compile Include="Models\PurchaseRepository.cs" />
     <Compile Include="Models\Repository.cs" />
+    <Compile Include="Models\StoreRepository.cs" />
     <Compile Include="Models\TemplateMvc4Context.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\flickrbomb.css" />
     <Content Include="Content\google-code-prettify\prettify.css" />
     <Content Include="Content\google-code-prettify\prettify.js" />
     <Content Include="Content\Images\apple-touch\apple-touch-icon-114x114-precomposed.png" />
@@ -296,6 +305,7 @@
     <Content Include="Content\Images\twitter.png" />
     <Content Include="Content\Images\windowsLive.png" />
     <Content Include="Content\Scripts\AjaxLogin.js" />
+    <Content Include="Content\Scripts\jquery.flickrbomb.min.js" />
     <Content Include="Content\Scripts\_custom\CrudHelpers.js">
       <DependentUpon>CrudHelpers.coffee</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -455,6 +465,13 @@
       <DesignTime>True</DesignTime>
     </Content>
     <Content Include="Views\Home\docs.css" />
+    <Content Include="Views\Categories\Create.cshtml" />
+    <Content Include="Views\Categories\Edit.cshtml" />
+    <Content Include="Views\Categories\Delete.cshtml" />
+    <Content Include="Views\Categories\Details.cshtml" />
+    <Content Include="Views\Categories\Index.cshtml" />
+    <Content Include="Views\Categories\_CreateOrEdit.cshtml" />
+    <None Include="Content\Site.less" />
     <None Include="Views\Home\javascript.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -463,7 +480,6 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Content\Site.css" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Account\ChangePassword.cshtml" />
     <Content Include="Views\Account\ChangePasswordSuccess.cshtml" />
@@ -477,6 +493,24 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Home\_TwitterFoot.cshtml" />
+    <Content Include="Views\Products\Create.cshtml" />
+    <Content Include="Views\Products\Edit.cshtml" />
+    <Content Include="Views\Products\Delete.cshtml" />
+    <Content Include="Views\Products\Details.cshtml" />
+    <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\Products\_CreateOrEdit.cshtml" />
+    <Content Include="Views\Purchases\Create.cshtml" />
+    <Content Include="Views\Purchases\Edit.cshtml" />
+    <Content Include="Views\Purchases\Delete.cshtml" />
+    <Content Include="Views\Purchases\Details.cshtml" />
+    <Content Include="Views\Purchases\Index.cshtml" />
+    <Content Include="Views\Purchases\_CreateOrEdit.cshtml" />
+    <Content Include="Views\Stores\Create.cshtml" />
+    <Content Include="Views\Stores\Edit.cshtml" />
+    <Content Include="Views\Stores\Delete.cshtml" />
+    <Content Include="Views\Stores\Details.cshtml" />
+    <Content Include="Views\Stores\Index.cshtml" />
+    <Content Include="Views\Stores\_CreateOrEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

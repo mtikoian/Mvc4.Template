@@ -8,18 +8,16 @@
   <header>
     @Html.Partial("_Header")
   </header>
-  <div id="body">
+  <div class="container" id="body">
     @RenderSection("featured", false)
-    <section class="content-wrapper main-content clear-fix">
+    <div class="content">
       @RenderBody()
-    </section>
+    </div>
   </div>
   <footer>
     @Html.Partial("_Footer")
   </footer>
-  
-    @Html.Partial("_DevTabs")
-  
+  @Html.Partial("_DevTabs")
   <div id="script-wrapper">
     @Html.Partial("_Scripts")
     @RenderSection("pageScripts", false)

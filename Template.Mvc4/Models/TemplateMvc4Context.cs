@@ -18,5 +18,13 @@ namespace Template.Mvc4.Models
         // System.Data.Entity.Database.SetInitializer(new System.Data.Entity.DropCreateDatabaseIfModelChanges<Template.Mvc4.Models.TemplateMvc4Context>());
 
        public DbSet<Template.Mvc4.Models.Contact> Contacts { get; set; }
+
+       public DbSet<Template.Mvc4.Models.Product> Products { get; set; }
+
+       public DbSet<Template.Mvc4.Models.Category> Categories { get; set; }
+
+       public DbSet<Template.Mvc4.Models.Purchase> Purchases { get; set; }
+
+       public DbSet<Template.Mvc4.Models.Store> Stores { get; set; }
     }
 }
