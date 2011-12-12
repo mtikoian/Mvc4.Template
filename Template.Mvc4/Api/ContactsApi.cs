@@ -50,7 +50,6 @@ namespace Template.Mvc4.Api
     [WebInvoke(UriTemplate = "{id}", Method = "PUT")]
     public Contact Update(string id, Contact instance)
     {
-      instance.ModifyDate = DateTime.Now;
       contactRepository.InsertOrUpdate(instance);
       contactRepository.Save();
       return instance;

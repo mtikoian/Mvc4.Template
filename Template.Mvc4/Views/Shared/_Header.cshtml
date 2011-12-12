@@ -1,18 +1,14 @@
-﻿<div class="content-wrapper">
-  <div class="float-left">
-    <p class="site-title">@Html.ActionLink("your logo here.", "Index", "Home")</p>
-  </div>
-  <div class="float-right">
-    <section id="login">
-      @Html.Partial("_LogOnPartial")
-    </section>
-    <nav>
-      <ul id="menu">
+﻿<div class="topbar" data-scrollspy="scrollspy">
+  <div class="topbar-inner">
+    <div class="container">
+      @Html.ActionLink("your logo here.", "Index", "Home", null, new { Class = "brand" })
+      <ul class="nav">
         <li>@Html.ActionLink("Home", "Index", "Home")</li>
+        <li>@Html.ActionLink("Styles", "TwitterBootstrap", "Home")</li>
         <li>@Html.ActionLink("Contacts", "Knockout", "Contacts")</li>
         <li>@Html.ActionLink("About", "About", "Home")</li>
         <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
       </ul>
-    </nav>
+    </div>
   </div>
 </div>

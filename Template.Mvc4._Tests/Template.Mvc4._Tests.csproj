@@ -75,6 +75,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
+    <Content Include="Twitter-Bootstrap\index.html" />
+    <Content Include="Twitter-Bootstrap\unit\bootstrap-alerts.js" />
+    <Content Include="Twitter-Bootstrap\unit\bootstrap-buttons.js" />
+    <Content Include="Twitter-Bootstrap\unit\bootstrap-dropdown.js" />
+    <Content Include="Twitter-Bootstrap\unit\bootstrap-modal.js" />
+    <Content Include="Twitter-Bootstrap\unit\bootstrap-popover.js" />
+    <Content Include="Twitter-Bootstrap\unit\bootstrap-scrollspy.js" />
+    <Content Include="Twitter-Bootstrap\unit\bootstrap-tabs.js" />
+    <Content Include="Twitter-Bootstrap\unit\bootstrap-twipsy.js" />
+    <Content Include="Twitter-Bootstrap\vendor\qunit.css" />
+    <Content Include="Twitter-Bootstrap\vendor\qunit.js" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Template.Mvc4\Template.Mvc4.csproj">

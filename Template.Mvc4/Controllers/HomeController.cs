@@ -28,5 +28,15 @@ namespace Template.Mvc4.Controllers
 
          return View();
       }
+
+      public ActionResult TwitterBootStrap()
+      {
+        return View();
+      }
+
+      public ActionResult Javascript()
+      {
+        return View();
+      }
    }
 }
