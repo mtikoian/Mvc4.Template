@@ -42,12 +42,23 @@ namespace Template.Mvc4
 
     protected void Application_Start()
     {
+      ViewEngines.Engines.Add(new CustomRazorViewEngine());
       AreaRegistration.RegisterAllAreas();
 
       RegisterGlobalFilters(GlobalFilters.Filters);
       RegisterRoutes(RouteTable.Routes);
 
       Database.SetInitializer(new DropCreateDatabaseIfModelChanges<TemplateMvc4Context>());
+    }
+  }
+
+  public class CustomRazorViewEngine : RazorViewEngine
+  {
+    private static readonly string[] NewPartialViewFormats = new[] { "~/Views/_Shared/{0}.cshtml" };
+
+    public CustomRazorViewEngine()
+    {
+      base.PartialViewLocationFormats = base.PartialViewLocationFormats.Union(NewPartialViewFormats).ToArray();
     }
   }
 }

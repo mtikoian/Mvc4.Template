@@ -1,4 +1,4 @@
-﻿@if (Request.IsAuthenticated) {
+@if (Request.IsAuthenticated) {
     <p>
         Hello, @Html.ActionLink(User.Identity.Name, "ChangePassword", "Account", null, new { @class = "username" })!
         @Html.ActionLink("Log Off", "LogOff", "Account")

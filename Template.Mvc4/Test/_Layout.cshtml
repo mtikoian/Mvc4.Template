@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>@Page.Title</title>
+        <link rel="stylesheet" href="/content/qunit.css " />
+        <script src="../Content/Scripts/jquery-1.7.1.min.js"></script>
+        <script src="../Content/Scripts/qunit.js"></script>
+
+        @RenderSection("Javascript", false)
+        @* Tests are written in the body. *@
+        @RenderBody()
+    </head>
+    <body>
+        <h1 id="qunit-header">
+          @(Page.Title ?? "QUnit tests")
+        </h1>
+        <h2 id="qunit-banner">
+        </h2>
+        <h2 id="qunit-userAgent"></h2>
+        <ol id="qunit-tests">
+        </ol>
+        <p>
+            <a href="/test/index">Back to tests</a>
+            <br />
+            <a href="http://docs.jquery.com/QUnit">QUnit Homepage</a>
+        </p>
+    </body>
+</html>

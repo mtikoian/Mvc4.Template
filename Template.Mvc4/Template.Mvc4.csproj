@@ -304,13 +304,9 @@
     <Content Include="Content\Images\orderedListTwo.png" />
     <Content Include="Content\Images\twitter.png" />
     <Content Include="Content\Images\windowsLive.png" />
+    <Content Include="Content\qunit.css" />
     <Content Include="Content\Scripts\AjaxLogin.js" />
     <Content Include="Content\Scripts\jquery.flickrbomb.min.js" />
-    <Content Include="Content\Scripts\_custom\CrudHelpers.js">
-      <DependentUpon>CrudHelpers.coffee</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Content>
     <Content Include="Content\Scripts\humane.js" />
     <Content Include="Content\Scripts\jquery-1.7.1-vsdoc.js" />
     <Content Include="Content\Scripts\jquery-1.7.1.js" />
@@ -326,12 +322,6 @@
     <Content Include="Content\Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Content\Scripts\knockout-1.3.0beta.debug.js" />
     <Content Include="Content\Scripts\knockout-1.3.0beta.js" />
-    <Content Include="Content\Scripts\_custom\ko-execute-on-enter.js">
-      <DependentUpon>ko-execute-on-enter.coffee</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Content>
-    <Content Include="Content\Scripts\_custom\ko-protected-observable.js" />
     <Content Include="Content\Scripts\less-1.1.5.js" />
     <Content Include="Content\Scripts\modernizr-2.0.6-development-only.js" />
     <Content Include="Content\Scripts\plugins.js" />
@@ -391,6 +381,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Content\Scripts\qunit.js" />
     <Content Include="Views\Home\application.js" />
     <Content Include="Content\twitter-bootstrap\images\bird.png" />
     <Content Include="Content\twitter-bootstrap\images\bootstrap-apple-114x114.png" />
@@ -472,7 +463,21 @@
     <Content Include="Views\Categories\Index.cshtml" />
     <Content Include="Views\Categories\_CreateOrEdit.cshtml" />
     <None Include="Content\Site.less" />
+    <Content Include="Test\_PageStart.cshtml" />
+    <Content Include="Test\_Layout.cshtml" />
+    <Content Include="Test\ContactsTest.cshtml" />
     <None Include="Views\Home\javascript.cshtml" />
+    <Content Include="Views\_Scripts\CrudHelpers.js">
+      <DependentUpon>CrudHelpers.coffee</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Content>
+    <Content Include="Views\_Scripts\ko-execute-on-enter.js">
+      <DependentUpon>ko-execute-on-enter.coffee</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Content>
+    <Content Include="Views\_Scripts\ko-protected-observable.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -488,9 +493,6 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_LogOnPartial.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Home\_TwitterFoot.cshtml" />
     <Content Include="Views\Products\Create.cshtml" />
@@ -511,9 +513,27 @@
     <Content Include="Views\Stores\Details.cshtml" />
     <Content Include="Views\Stores\Index.cshtml" />
     <Content Include="Views\Stores\_CreateOrEdit.cshtml" />
+    <None Include="Views\_Scripts\CrudHelpers.coffee">
+      <Generator>CoffeeScriptGenerator</Generator>
+      <LastGenOutput>CrudHelpers.js</LastGenOutput>
+    </None>
+    <None Include="Views\_Scripts\ko-execute-on-enter.coffee">
+      <Generator>CoffeeScriptGenerator</Generator>
+      <LastGenOutput>ko-execute-on-enter.js</LastGenOutput>
+    </None>
+    <Content Include="Views\_Shared\_DevTabs.cshtml" />
+    <Content Include="Views\_Shared\Error.cshtml" />
+    <Content Include="Views\_Shared\_Footer.cshtml" />
+    <Content Include="Views\_Shared\_Head.cshtml" />
+    <Content Include="Views\_Shared\_Header.cshtml" />
+    <Content Include="Views\_Shared\_Layout.cshtml" />
+    <Content Include="Views\_Shared\_LessEditor.cshtml" />
+    <Content Include="Views\_Shared\_LogOnPartial.cshtml" />
+    <Content Include="Views\_Shared\_Scripts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Scripts\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -537,31 +557,12 @@
     <Content Include="Views\Contacts\_CreateOrEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\_Scripts.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Shared\_Footer.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Shared\_Header.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Content\code-mirror\mode\coffeescript\LICENSE" />
     <None Include="Content\code-mirror\mode\pascal\LICENSE" />
     <None Include="Content\code-mirror\mode\perl\LICENSE" />
     <None Include="Content\code-mirror\mode\ruby\LICENSE" />
     <None Include="Content\code-mirror\mode\r\LICENSE" />
-    <None Include="Content\Scripts\_custom\CrudHelpers.coffee">
-      <Generator>CoffeeScriptGenerator</Generator>
-      <LastGenOutput>CrudHelpers.js</LastGenOutput>
-    </None>
-    <None Include="Content\Scripts\_custom\ko-execute-on-enter.coffee">
-      <Generator>CoffeeScriptGenerator</Generator>
-      <LastGenOutput>ko-execute-on-enter.js</LastGenOutput>
-    </None>
     <Content Include="Views\Contacts\Knockout.cshtml" />
-    <Content Include="Views\Shared\_LessEditor.cshtml" />
-    <Content Include="Views\Shared\_Head.cshtml" />
     <None Include="Content\twitter-bootstrap\styles\bootstrap.less">
       <Generator>LessGenerator</Generator>
       <LastGenOutput>bootstrap1.css</LastGenOutput>
@@ -602,7 +603,6 @@
       <Generator>CoffeeScriptGenerator</Generator>
       <LastGenOutput>Contact.js</LastGenOutput>
     </None>
-    <Content Include="Views\Shared\_DevTabs.cshtml" />
     <Content Include="Views\Home\TwitterBootstrap.cshtml" />
     <Content Include="Views\Home\_TwitterHead.cshtml" />
   </ItemGroup>

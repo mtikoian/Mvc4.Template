@@ -1,0 +1,28 @@
+﻿@using System.IO;
+@{
+  Layout = null;
+
+  var files = from path in
+  Directory.GetFiles(Server.MapPath("./"), "*.cshtml")
+  let fileName = Path.GetFileNameWithoutExtension(path)
+  where !fileName.StartsWith("_")
+  && !fileName.Equals("index", StringComparison.OrdinalIgnoreCase)
+  select fileName;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <div>
+        <h1>QUnit tests</h1>
+        <ul>
+        @foreach (var file in files) {
+            <li><a href="@file">@file</a></li>
+        }
+        </ul>
+    </div>
+</body>
+</html>

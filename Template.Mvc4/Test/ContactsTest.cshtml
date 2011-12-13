@@ -1,0 +1,31 @@
+﻿@{
+  Page.Title = "ContactsTests";
+}
+@if (false)
+{
+  // OPTIONAL! QUnit script (here for intellisense)
+  <script src="../Content/Scripts/qunit.js"> </script>
+}
+<!-- Script we're testing -->
+<script>
+  // calculator.js
+  var Calculator = function () { };
+
+  Calculator.prototype.add = function (x, y) {
+    return x + y;
+  };
+</script>
+
+<!-- The tests -->
+<script>
+
+  $(function () {
+    // calculator_tests.js
+    module("My Calculator");
+    test("Should return 4 when adding 2 + 2", function () {
+      var calc = new Calculator();
+      ok(calc, "My caluculator is a O.K.");
+      equals(calc.add(2, 2), 4, "2 + 2 = 4");
+    });
+  });
+</script>
