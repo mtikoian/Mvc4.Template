@@ -9,7 +9,7 @@ namespace Template.Mvc4.Api
 {
   public class ContactsApi
   {
-    private readonly IRepository<Contact> contactRepository;
+    private readonly IRepository<Contact> _contactRepository;
 
     #region -- Constructor --
     
@@ -21,7 +21,7 @@ namespace Template.Mvc4.Api
 
     public ContactsApi(IRepository<Contact> contactRepository)
     {
-      this.contactRepository = contactRepository;
+      this._contactRepository = contactRepository;
     }
 
     #endregion //-- Constructor --
@@ -29,36 +29,36 @@ namespace Template.Mvc4.Api
     [WebGet(UriTemplate = "")]
     public IQueryable<Contact> GetAll()
     {
-      return contactRepository.All;
+      return _contactRepository.All;
     }
 
     [WebInvoke(UriTemplate = "", Method = "POST")]
     public Contact Create(Contact instance)
     {
       instance.ModifyDate = DateTime.Now;
-      contactRepository.InsertOrUpdate(instance);
-      contactRepository.Save();
+      _contactRepository.InsertOrUpdate(instance);
+      _contactRepository.Save();
       return instance;
     }
 
     [WebGet(UriTemplate = "{id}")]
     public Contact Get(int id)
     {
-      return contactRepository.Find(id);
+      return _contactRepository.Find(id);
     }
 
     [WebInvoke(UriTemplate = "{id}", Method = "PUT")]
     public Contact Update(string id, Contact instance)
     {
-      contactRepository.InsertOrUpdate(instance);
-      contactRepository.Save();
+      _contactRepository.InsertOrUpdate(instance);
+      _contactRepository.Save();
       return instance;
     }
 
     [WebInvoke(UriTemplate = "{id}", Method = "DELETE")]
     public string Delete(int id)
     {
-      contactRepository.Delete(id);
+      _contactRepository.Delete(id);
       return "Contact id: " + id + " deleted.";
     }
   }

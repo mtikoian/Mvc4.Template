@@ -5,13 +5,16 @@ $ ->
 
     viewModel =
       contacts: ko.observableArray(ko.toProtectedObservableItemArray(jsonData))
-      contactToAdd: ko.observable("")
+      contactToAddFirst: ko.observable("")
+      contactToAddLast: ko.observable("")
       selectedContact: ko.observable(null)
       addContact: ->
         newContact = 
-         FirstName: @contactToAdd()
-        @contactToAdd ""
-        CrudHelpers.ajaxAdd baseUrl, 
+         FirstName: @contactToAddFirst()
+         LastName: @contactToAddLast()
+        @contactToAddFirst ""
+        @contactToAddLast ""
+        CrudHelpers.ajaxAdd baseUrl + "", 
          ko.toJSON newContact
          (data) ->
             viewModel.contacts.push (new ko.protectedObservableItem(data))

@@ -7,15 +7,18 @@
       var viewModel;
       viewModel = {
         contacts: ko.observableArray(ko.toProtectedObservableItemArray(jsonData)),
-        contactToAdd: ko.observable(""),
+        contactToAddFirst: ko.observable(""),
+        contactToAddLast: ko.observable(""),
         selectedContact: ko.observable(null),
         addContact: function() {
           var newContact;
           newContact = {
-            FirstName: this.contactToAdd()
+            FirstName: this.contactToAddFirst(),
+            LastName: this.contactToAddLast()
           };
-          this.contactToAdd("");
-          return CrudHelpers.ajaxAdd(baseUrl, ko.toJSON(newContact), function(data) {
+          this.contactToAddFirst("");
+          this.contactToAddLast("");
+          return CrudHelpers.ajaxAdd(baseUrl + "", ko.toJSON(newContact), function(data) {
             return viewModel.contacts.push(new ko.protectedObservableItem(data));
           });
         },

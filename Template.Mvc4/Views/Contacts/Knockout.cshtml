@@ -4,7 +4,8 @@
 }
 <div id="contactsList">
   <div class="box-content">
-    <input type="text" placeholder="Add New Contact" data-bind="value: contactToAdd, valueUpdate: 'afterkeydown', executeOnEnter: addContact" />
+    <input type="text" placeholder="First Name" data-bind="value: contactToAddFirst, valueUpdate: 'afterkeydown', executeOnEnter: addContact" />
+    <input type="text" placeholder="Last Name" data-bind="value: contactToAddLast, valueUpdate: 'afterkeydown', executeOnEnter: addContact" />
     <button data-bind="click: addContact">
       + Add</button>
     <ul data-bind="foreach: contacts">
