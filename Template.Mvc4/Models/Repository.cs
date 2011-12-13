@@ -10,16 +10,16 @@ namespace Template.Mvc4.Models
 {
   public class Repository<T> : IRepository<T> where T: ModelBase
   {
-    private TemplateMvc4Context context = new TemplateMvc4Context();
+    private readonly TemplateMvc4Context _context = new TemplateMvc4Context();
 
     public IQueryable<T> All
     {
-      get { return context.Set<T>(); }
+      get { return _context.Set<T>(); }
     }
 
     public IQueryable<T> AllIncluding(params Expression<Func<T, object>>[] includeProperties)
     {
-      IQueryable<T> query = context.Set<T>();
+      IQueryable<T> query = _context.Set<T>();
       foreach (var includeProperty in includeProperties)
       {
         query = query.Include(includeProperty);
@@ -29,7 +29,7 @@ namespace Template.Mvc4.Models
 
     public T Find(int id)
     {
-      return context.Set<T>().Find(id);
+      return _context.Set<T>().Find(id);
     }
 
     public void InsertOrUpdate(T entity)
@@ -38,24 +38,24 @@ namespace Template.Mvc4.Models
       if (entity.Id == default(int))
       {
         // New entity
-        context.Set<T>().Add(entity);
+        _context.Set<T>().Add(entity);
       }
       else
       {
         // Existing entity
-        context.Entry(entity).State = EntityState.Modified;
+        _context.Entry(entity).State = EntityState.Modified;
       }
     }
 
     public void Delete(int id)
     {
-      var entity = context.Set<T>().Find(id);
-      context.Set<T>().Remove(entity);
+      var entity = _context.Set<T>().Find(id);
+      _context.Set<T>().Remove(entity);
     }
 
     public void Save()
     {
-      context.SaveChanges();
+      _context.SaveChanges();
     }
   }
 
