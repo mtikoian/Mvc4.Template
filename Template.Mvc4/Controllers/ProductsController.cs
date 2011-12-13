@@ -9,8 +9,8 @@ namespace Template.Mvc4.Controllers
 {
   public class ProductsController : Controller
   {
-    private readonly ICategoryRepository categoryRepository;
-    private readonly IProductRepository productRepository;
+    private readonly ICategoryRepository _categoryRepository;
+    private readonly IProductRepository _productRepository;
 
     // If you are using Dependency Injection, you can delete the following constructor
     public ProductsController()
@@ -20,8 +20,8 @@ namespace Template.Mvc4.Controllers
 
     public ProductsController(ICategoryRepository categoryRepository, IProductRepository productRepository)
     {
-      this.categoryRepository = categoryRepository;
-      this.productRepository = productRepository;
+      this._categoryRepository = categoryRepository;
+      this._productRepository = productRepository;
     }
 
     //
@@ -29,7 +29,7 @@ namespace Template.Mvc4.Controllers
 
     public ViewResult Index()
     {
-      return View(productRepository.AllIncluding(product => product.Category, product => product.Stores, product => product.Purchases));
+      return View(_productRepository.AllIncluding(product => product.Category, product => product.Stores, product => product.Purchases));
     }
 
     //
@@ -37,7 +37,7 @@ namespace Template.Mvc4.Controllers
 
     public ViewResult Details(int id)
     {
-      return View(productRepository.Find(id));
+      return View(_productRepository.Find(id));
     }
 
     //
@@ -45,7 +45,7 @@ namespace Template.Mvc4.Controllers
 
     public ActionResult Create()
     {
-      ViewBag.PossibleCategories = categoryRepository.All;
+      ViewBag.PossibleCategories = _categoryRepository.All;
       return View();
     }
 
@@ -57,13 +57,13 @@ namespace Template.Mvc4.Controllers
     {
       if (ModelState.IsValid)
       {
-        productRepository.InsertOrUpdate(product);
-        productRepository.Save();
+        _productRepository.InsertOrUpdate(product);
+        _productRepository.Save();
         return RedirectToAction("Index");
       }
       else
       {
-        ViewBag.PossibleCategories = categoryRepository.All;
+        ViewBag.PossibleCategories = _categoryRepository.All;
         return View();
       }
     }
@@ -73,8 +73,8 @@ namespace Template.Mvc4.Controllers
 
     public ActionResult Edit(int id)
     {
-      ViewBag.PossibleCategories = categoryRepository.All;
-      return View(productRepository.Find(id));
+      ViewBag.PossibleCategories = _categoryRepository.All;
+      return View(_productRepository.Find(id));
     }
 
     //
@@ -85,13 +85,13 @@ namespace Template.Mvc4.Controllers
     {
       if (ModelState.IsValid)
       {
-        productRepository.InsertOrUpdate(product);
-        productRepository.Save();
+        _productRepository.InsertOrUpdate(product);
+        _productRepository.Save();
         return RedirectToAction("Index");
       }
       else
       {
-        ViewBag.PossibleCategories = categoryRepository.All;
+        ViewBag.PossibleCategories = _categoryRepository.All;
         return View();
       }
     }
@@ -101,7 +101,7 @@ namespace Template.Mvc4.Controllers
 
     public ActionResult Delete(int id)
     {
-      return View(productRepository.Find(id));
+      return View(_productRepository.Find(id));
     }
 
     //
@@ -110,8 +110,8 @@ namespace Template.Mvc4.Controllers
     [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirmed(int id)
     {
-      productRepository.Delete(id);
-      productRepository.Save();
+      _productRepository.Delete(id);
+      _productRepository.Save();
 
       return RedirectToAction("Index");
     }

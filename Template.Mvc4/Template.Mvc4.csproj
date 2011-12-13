@@ -462,10 +462,12 @@
     <Content Include="Views\Categories\Details.cshtml" />
     <Content Include="Views\Categories\Index.cshtml" />
     <Content Include="Views\Categories\_CreateOrEdit.cshtml" />
+    <None Include="Content\simplyunique.less" />
     <None Include="Content\Site.less" />
     <Content Include="Test\_PageStart.cshtml" />
     <Content Include="Test\_Layout.cshtml" />
     <Content Include="Test\ContactsTest.cshtml" />
+    <Content Include="Test\Index.cshtml" />
     <None Include="Views\Home\javascript.cshtml" />
     <Content Include="Views\_Scripts\CrudHelpers.js">
       <DependentUpon>CrudHelpers.coffee</DependentUpon>
