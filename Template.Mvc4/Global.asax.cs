@@ -9,6 +9,7 @@ using Microsoft.ApplicationServer.Http;
 using Template.Mvc4.Models;
 using System.Data.Entity;
 using Template.Mvc4.Api;
+using System.Diagnostics;
 
 namespace Template.Mvc4
 {
@@ -50,8 +51,17 @@ namespace Template.Mvc4
 
       Database.SetInitializer(new DropCreateDatabaseIfModelChanges<TemplateMvc4Context>());
     }
-  }
 
+
+    [Conditional("DEBUG")]
+    private void SetDbInit()
+    {
+      SetDbInit();
+
+      Database.SetInitializer(new DropCreateDatabaseIfModelChanges<AppHarborTemplateContext>());
+      Database.SetInitializer(new CreateDatabaseIfNotExists<AppHarborTemplateContext>());
+    }
+  }
   public class CustomRazorViewEngine : RazorViewEngine
   {
     private static readonly string[] NewPartialViewFormats = new[] { "~/Views/_Shared/{0}.cshtml" };
