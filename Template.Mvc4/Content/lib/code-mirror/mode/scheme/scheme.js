@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Author: Koh Zi Han, based on implementation by Koh Zi Chun
  */
 CodeMirror.defineMode("scheme", function (config, mode) {

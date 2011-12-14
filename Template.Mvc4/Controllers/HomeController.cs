@@ -38,5 +38,16 @@ namespace Template.Mvc4.Controllers
       {
         return View();
       }
+
+      public ActionResult Groceries()
+      {
+        return RedirectToAction("Index", "Purchases");
+      }
+
+      public ActionResult Gallery()
+      {
+        return View();
+      }
+
    }
 }

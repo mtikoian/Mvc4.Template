@@ -1,4 +1,4 @@
-/**
+﻿/**
  * xmlpure.js
  * 
  * Building upon and improving the CodeMirror 2 XML parser
