@@ -415,13 +415,8 @@
     <Content Include="Content\lib\twitter-bootstrap\scripts\bootstrap-scrollspy.js" />
     <Content Include="Content\lib\twitter-bootstrap\scripts\bootstrap-tabs.js" />
     <Content Include="Content\lib\twitter-bootstrap\scripts\bootstrap-twipsy.js" />
-    <Content Include="Content\lib\twitter-bootstrap\styles\bootstrap.css" />
+    <None Include="Content\lib\twitter-bootstrap\styles\bootstrap.css.old" />
     <Content Include="Content\lib\twitter-bootstrap\styles\bootstrap.min.css" />
-    <Content Include="Content\lib\twitter-bootstrap\styles\bootstrap1.css">
-      <DependentUpon>bootstrap.less</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Content>
     <Content Include="Content\lib\twitter-bootstrap\styles\forms.css">
       <DependentUpon>forms.less</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -481,7 +476,7 @@
     <None Include="Content\lib\code-mirror\mode\ruby\LICENSE" />
     <None Include="Content\lib\code-mirror\mode\r\LICENSE" />
     <None Include="Content\simplyunique.less" />
-    <None Include="Content\Site.less" />
+    <Content Include="Content\Site.less" />
     <Content Include="Test\_PageStart.cshtml" />
     <Content Include="Test\_Layout.cshtml" />
     <Content Include="Test\ContactsTest.cshtml" />
@@ -580,10 +575,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Contacts\Knockout.cshtml" />
-    <None Include="Content\lib\twitter-bootstrap\styles\bootstrap.less">
-      <Generator>LessGenerator</Generator>
-      <LastGenOutput>bootstrap1.css</LastGenOutput>
-    </None>
+    <Content Include="Content\lib\twitter-bootstrap\styles\bootstrap.less" />
     <None Include="Content\lib\twitter-bootstrap\styles\forms.less">
       <Generator>LessGenerator</Generator>
       <LastGenOutput>forms.css</LastGenOutput>
