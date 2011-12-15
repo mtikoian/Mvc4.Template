@@ -417,46 +417,6 @@
     <Content Include="Content\lib\twitter-bootstrap\scripts\bootstrap-twipsy.js" />
     <None Include="Content\lib\twitter-bootstrap\styles\bootstrap.css.old" />
     <Content Include="Content\lib\twitter-bootstrap\styles\bootstrap.min.css" />
-    <Content Include="Content\lib\twitter-bootstrap\styles\forms.css">
-      <DependentUpon>forms.less</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Content>
-    <Content Include="Content\lib\twitter-bootstrap\styles\mixins.css">
-      <DependentUpon>mixins.less</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Content>
-    <Content Include="Content\lib\twitter-bootstrap\styles\patterns.css">
-      <DependentUpon>patterns.less</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Content>
-    <Content Include="Content\lib\twitter-bootstrap\styles\reset.css">
-      <DependentUpon>reset.less</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Content>
-    <Content Include="Content\lib\twitter-bootstrap\styles\scaffolding.css">
-      <DependentUpon>scaffolding.less</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Content>
-    <Content Include="Content\lib\twitter-bootstrap\styles\tables.css">
-      <DependentUpon>tables.less</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Content>
-    <Content Include="Content\lib\twitter-bootstrap\styles\type.css">
-      <DependentUpon>type.less</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Content>
-    <Content Include="Content\lib\twitter-bootstrap\styles\variables.css">
-      <DependentUpon>variables.less</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Content>
     <Content Include="Global.asax" />
     <Content Include="Views\Contacts\Contact.js">
       <DependentUpon>Contact.coffee</DependentUpon>
@@ -576,38 +536,14 @@
   <ItemGroup>
     <Content Include="Views\Contacts\Knockout.cshtml" />
     <Content Include="Content\lib\twitter-bootstrap\styles\bootstrap.less" />
-    <None Include="Content\lib\twitter-bootstrap\styles\forms.less">
-      <Generator>LessGenerator</Generator>
-      <LastGenOutput>forms.css</LastGenOutput>
-    </None>
-    <None Include="Content\lib\twitter-bootstrap\styles\mixins.less">
-      <Generator>LessGenerator</Generator>
-      <LastGenOutput>mixins.css</LastGenOutput>
-    </None>
-    <None Include="Content\lib\twitter-bootstrap\styles\patterns.less">
-      <Generator>LessGenerator</Generator>
-      <LastGenOutput>patterns.css</LastGenOutput>
-    </None>
-    <None Include="Content\lib\twitter-bootstrap\styles\reset.less">
-      <Generator>LessGenerator</Generator>
-      <LastGenOutput>reset.css</LastGenOutput>
-    </None>
-    <None Include="Content\lib\twitter-bootstrap\styles\scaffolding.less">
-      <Generator>LessGenerator</Generator>
-      <LastGenOutput>scaffolding.css</LastGenOutput>
-    </None>
-    <None Include="Content\lib\twitter-bootstrap\styles\tables.less">
-      <Generator>LessGenerator</Generator>
-      <LastGenOutput>tables.css</LastGenOutput>
-    </None>
-    <None Include="Content\lib\twitter-bootstrap\styles\type.less">
-      <Generator>LessGenerator</Generator>
-      <LastGenOutput>type.css</LastGenOutput>
-    </None>
-    <None Include="Content\lib\twitter-bootstrap\styles\variables.less">
-      <Generator>LessGenerator</Generator>
-      <LastGenOutput>variables.css</LastGenOutput>
-    </None>
+    <Content Include="Content\lib\twitter-bootstrap\styles\forms.less" />
+    <Content Include="Content\lib\twitter-bootstrap\styles\mixins.less" />
+    <Content Include="Content\lib\twitter-bootstrap\styles\patterns.less" />
+    <Content Include="Content\lib\twitter-bootstrap\styles\reset.less" />
+    <Content Include="Content\lib\twitter-bootstrap\styles\scaffolding.less" />
+    <Content Include="Content\lib\twitter-bootstrap\styles\tables.less" />
+    <Content Include="Content\lib\twitter-bootstrap\styles\type.less" />
+    <Content Include="Content\lib\twitter-bootstrap\styles\variables.less" />
     <None Include="Views\Contacts\Contact.coffee">
       <Generator>CoffeeScriptGenerator</Generator>
       <LastGenOutput>Contact.js</LastGenOutput>
