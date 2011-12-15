@@ -481,7 +481,7 @@
     <None Include="Content\lib\code-mirror\mode\ruby\LICENSE" />
     <None Include="Content\lib\code-mirror\mode\r\LICENSE" />
     <None Include="Content\simplyunique.less" />
-    <None Include="Content\Site.less" />
+    <Content Include="Content\Site.less" />
     <Content Include="Test\_PageStart.cshtml" />
     <Content Include="Test\_Layout.cshtml" />
     <Content Include="Test\ContactsTest.cshtml" />
@@ -580,10 +580,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Contacts\Knockout.cshtml" />
-    <None Include="Content\lib\twitter-bootstrap\styles\bootstrap.less">
+    <Content Include="Content\lib\twitter-bootstrap\styles\bootstrap.less">
       <Generator>LessGenerator</Generator>
       <LastGenOutput>bootstrap1.css</LastGenOutput>
-    </None>
+    </Content>
     <None Include="Content\lib\twitter-bootstrap\styles\forms.less">
       <Generator>LessGenerator</Generator>
       <LastGenOutput>forms.css</LastGenOutput>
