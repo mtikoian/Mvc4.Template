@@ -1,0 +1,390 @@
+@selectedDayColor: white;
+@unavailableDayColor: red; 
+@amAvailableDayColor: orange;
+@pmAvailableDayColor: gray;
+@btnbackgroundcolor: #000; 
+@calendarContainerBackground: #036981;
+@image_dir: 'http://dl.dropbox.com/u/148605/simply-unique/assets/';
+ 
+ 
+.rounded-corners (@radius: 5px) {
+  border-radius: @radius;
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+}
+
+
+.rounded-top-corners (@radius: 4px) {
+
+  -webkit-border-top-left-radius: @radius;
+  -webkit-border-top-right-radius: @radius;
+  -moz-border-topleft-radius: @radius;
+  -moz-border-topright-radius: @radius;
+  border-top-left-radius: @radius;
+  border-top-right-radius: @radius;
+}
+
+.rounded-bottom-corners (@radius: 4px) {
+  -webkit-border-bottom-left-radius: @radius;
+  -webkit-border-bottom-right-radius: @radius;
+  -moz-border-bottomleft-radius: @radius;
+  -moz-border-bottomright-radius: @radius;
+  border-bottom-left-radius: @radius;
+  border-bottom-right-radius: @radius;
+}
+
+
+.box-shadow (@x: 0, @y: 0, @blur: 1px, @alpha) {
+  @val: @x @y @blur rgba(0, 0, 0, @alpha);
+
+  box-shadow:         @val;
+  -webkit-box-shadow: @val;
+  -moz-box-shadow:    @val;
+}
+
+
+
+.dayHeaderAndContent(@contrastcolor, @lightercolor: #999 )
+{ 
+  .header {
+    background:@contrastcolor;
+    border-color:@contrastcolor;
+    .day {  color:black; }
+  }
+  .content {
+    color:@contrastcolor;
+    border-color:@contrastcolor;
+    background-color: @lightercolor;
+    
+  }
+}
+
+.DOP_BackendBookingCalendar_Day.past_day.past_month span {display: none !important;}
+
+.navigationweek {
+  margin:0;
+  padding:0;
+  .day {
+    display: none;
+    margin:5px;
+    padding:0;
+    font-family:Hevetica, Arial, sans-serif;
+    font-size:12px;
+    font-weight:bold;
+    color:#ffffff;
+    text-align:center;
+    float:left;
+    line-height:1em;
+  }
+}
+
+#backend-container{
+    padding: 0;
+}
+
+#backend{
+    width: 390px;
+    height: 400px;
+    background: url(@image_dir+'loader-big.gif') no-repeat center center;
+}
+
+#backend-container .calendar_legend{
+  position: relative;
+  bottom: 140px;
+  left: 80px;
+  color: white;
+  
+  span{.rounded-corners(6px);padding: 0 8px; line-height:22px;}
+  .unavailable { 
+    background: @unavailableDayColor; 
+    
+  }
+  .amavailable { background: @amAvailableDayColor; }
+  .pmavailable { background: @pmAvailableDayColor; }
+}
+#backend-container #backend {
+  .DOP_BackendBookingCalendar_Container {
+    margin:0;
+    padding:0;
+    position:relative;
+    background: @calendarContainerBackground;
+    border:1px solid #2b271c;
+    .rounded-corners;
+    .box-shadow (0px, 3px, 5px, .7);
+  }
+  .DOP_BackendBookingCalendar_Navigation {
+    margin:0;
+    padding:0;
+    z-index:200;
+    position:relative;
+    background-color: transparent;
+    width: 100%; 
+    text-align:center;
+    .rounded-top-corners;
+    .nav-btn {
+      margin:0;
+      padding:0;
+      position:absolute;
+      background-color:@btnbackgroundcolor;
+      width:20px;
+      height:20px;
+      top:10px;
+      cursor:pointer;
+      opacity:0.8;
+      filter:alpha(opacity=80);
+    }
+    .nav-btn-icon {
+      padding:0;
+      margin:4px 0 0 7px;
+      border-style:solid;
+      width:0px;
+      height:0px;
+    }
+    .previous_btn {
+      .nav-btn;
+      z-index:100;
+      .rounded-corners;
+      left:10px;
+      .icon {
+        .nav-btn-icon;
+        margin:4px 0 0 3px;
+        border-color:@btnbackgroundcolor #bcbcbc @btnbackgroundcolor @btnbackgroundcolor;
+        padding:0;
+        border-width:6px 7px 6px 3px;
+      }
+    }
+    .previous_btn:hover {
+      opacity:1;
+      filter:alpha(opacity=100);
+    }
+    .previous_btn.disabled {
+      cursor:default;
+    }
+    .previous_btn.disabled:hover {
+      opacity:0.8;
+      filter:alpha(opacity=80);
+    }
+    .next_btn {
+      .nav-btn;
+      z-index:200;
+      .rounded-corners(3px);
+      right:10px;
+      .icon {
+        .nav-btn-icon;
+        margin:4px 0 0 7px;
+        border-color:@btnbackgroundcolor @btnbackgroundcolor @btnbackgroundcolor #bcbcbc;
+        border-width:6px 3px 6px 7px;
+      }
+    }    
+    .next_btn:hover {
+      opacity:1;
+      filter:alpha(opacity=100);
+    }
+    .month_year {
+      margin:0;
+      padding:10px;
+      font-family:Hevetica, Arial, sans-serif;
+      font-weight:bold;
+      font-size:16px;
+      color:#ffffff;
+    }
+    .week { .navigationweek;}
+  }
+  .DOP_BackendBookingCalendar_Calendar {
+    margin:0;
+    padding:0;
+    z-index:300;
+    position:relative;
+  }
+  .DOP_BackendBookingCalendar_Month {
+    margin:0;
+    padding:0;
+  }
+  .day {
+    margin:0;
+    padding: 0 2px 0 0;
+    color:#ffffff;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:14px;
+    font-weight:600;
+    float:center;
+  }
+  .price {
+    margin:0;
+    padding:0;
+    color:@selectedDayColor;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:11px;
+    font-weight:bold;
+    float:right;
+    display: none;
+  }
+
+  .DOP_BackendBookingCalendar_Day {
+    margin:5px;
+    padding:0;
+    float:left;
+    .header {
+      margin:4px;
+      padding:2px 2px 2px 2px;
+      display:block;
+      text-align: center;
+      .rounded-corners (15px);
+      height:20px;
+    }
+    .content {
+      margin:0;
+      padding:0 5px 0 5px;
+      display:block;
+      color:#222222;
+      font-family:Arial, Helvetica, sans-serif;
+      font-size:12px;
+      font-weight:bold;
+      text-align:center;
+      border:1px solid #222222;
+      border-top:none;
+      .rounded-bottom-corners(3px);
+      background:@selectedDayColor;
+    
+    }
+  
+    &.last_month {
+      cursor:pointer;
+      opacity:0.4;
+      filter:alpha(opacity=40);
+      span {display: none;}
+    }
+    &.past_day {
+      opacity:0.20;
+      filter:alpha(opacity=20);
+    }
+    &.curr_month {
+      cursor:pointer;
+    }
+    &.next_month {
+      cursor:pointer;
+      opacity:0.4;
+      filter:alpha(opacity=40);
+      display: none;
+    }
+    &.unavailable {
+      .dayHeaderAndContent(@unavailableDayColor, #ff7373);
+    }
+    &.amavailable{
+      .dayHeaderAndContent(@amAvailableDayColor, #ffbf72);
+    }
+    &.pmavailable {
+      .dayHeaderAndContent(@pmAvailableDayColor, #b3b3b3);
+    }
+    &.selected {
+      .dayHeaderAndContent(@selectedDayColor);
+    }
+  }
+
+  .DOP_BackendBookingCalendar_PopUp {
+    @fontfamily: Hevetica, Arial, sans-serif;
+    z-index:400;
+    display:none;
+    position:absolute;
+    .bg {
+      position:absolute;
+      background:#222222;
+      .rounded-corners(5px);
+      opacity:0.7;
+      filter:alpha(opacity=70);
+    }
+    .window {
+      position:absolute;
+      background:#000000;
+      width:300px;
+      .rounded-corners(5px);
+      .mydate {
+        color:#c0c0c0;
+        font-family:@fontfamily;
+        font-size:13px;
+        font-weight:bold;
+        display:block;
+      }
+      .start-date {
+        .mydate;
+        margin:20px 0 0 20px;
+        float:left;
+      }
+      .end-date {
+        .mydate;
+        margin:20px 20px 0 0;
+        float:right;
+      }
+      .label {
+        color:#eeeeee;
+        font-family:@fontfamily;
+        font-size:12px;
+        font-weight:bold;
+        margin:10px 20px 0 20px;
+        display:block;
+      }
+      .label:first-child {
+        margin-top:20px;
+      }
+      .select-style {
+        color:#555555;
+        background:#eeeeee;
+        font-family:@fontfamily;
+        font-size:12px;
+        margin:0 0 0 20px;
+        border:none;
+        width:260px;
+        padding:2px 5px 2px 5px;
+        .rounded-corners(2px);
+      }
+      .input-style {
+        color:#555555;
+        background:#eeeeee;
+        font-family:@fontfamily;
+        font-size:12px;
+        margin:0 0 0 20px;
+        border:none;
+        width:250px;
+        padding:2px 5px 2px 5px;
+        .rounded-corners(5px);
+      }
+      .buttons_container {
+        margin:0 0 0 10px;
+        display:block;
+      }
+      .button-style {
+        color:#eeeeee;
+        font-family:@fontfamily;
+        font-size:12px;
+        font-weight:bold;
+        margin:20px 0 20px 10px;
+        border:1px solid #606060;
+        background:#444444;
+        padding:3px 5px 3px 5px;
+        .rounded-corners(3px);
+        cursor:pointer;
+      }
+      .button-style:hover {
+        color:#eeeeee;
+        border:1px solid  selectedDayColor;
+      }
+      .loader {
+        width:20px;
+        height:22px;
+        margin:20px 45px 20px 0;
+        background:url(@image_dir+'/loader-small.gif') no-repeat center center;
+        display:none;
+        float:right;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,113 @@
+﻿@{
+  Page.Title = "ContactsTests";
+}
+@if (false)
+{
+  // OPTIONAL! QUnit script (here for intellisense)
+  <script type="text/javascript" src="/Content/lib/qunit/qunit.js"> </script>
+}
+<!-- Script we're testing -->
+<script type="text/javascript">
+  var SS = null || {};
+  SS.DateHelper = function () {
+    this.getFirstDayOfMonth = function (date) {
+      var d = new Date(date);
+      d.setDate(1);
+      return d;
+    };
+    this.getLastDayOfMonth = function (date) {
+      var d = new Date(date);
+      d.setMonth(date.getMonth() + 1);
+      d.setDate(0);
+      return d;
+    };
+  }
+</script>
+<!-- The tests -->
+<script type="text/javascript">
+
+  $(function () {
+    // calculator_tests.js
+    module("SS.dateHelper");
+    var helper = new SS.DateHelper();
+
+    test("dateHelper.getFirstDayOfMonth(inputDate)) should not alter inputDate", function () {
+      ok(helper, "My datehelper is a O.K.");
+      var initialDate = new Date("11/05/12");
+      var initialDateAsString = initialDate.toDateString();
+      var rtnObj = helper.getFirstDayOfMonth(initialDate);
+      equals(initialDate.toDateString(), initialDateAsString, "initialDate.toString()");
+    });
+
+    test("dateHelper.getFirstDayOfMonth(nonDateObj)) should return Invalid Date", function () {
+      var input = {
+        x: 1,
+        y: 2
+      };
+      var rtnObj = helper.getFirstDayOfMonth(input);
+      equals(rtnObj.constructor.name, "Date", ".getFirstDayOfMonth(nonDateObj) returns a date object.");
+      equals(rtnObj.toString(), "Invalid Date", "rtnObj.toString() returns 'Invalid Date'");
+    });
+
+    test("dateHelper.getFirstDayOfMonth(anyDate)) should return a date.", function () {
+      var rtnObj = helper.getFirstDayOfMonth(new Date("01/05/12"));
+      equals(rtnObj.constructor.name, "Date", ".getFirstDayOfMonth(date) returns a date");
+    });
+
+    test("dateHelper.getFirstDayOfMonth(anyDate)) should accept a date string.", function () {
+      var expectedDate = new Date("01/01/02");
+      testFirstDay("01/23/02", expectedDate);
+    });
+
+    test("Should return first day of month", function () {
+      var initialDate = new Date("01/12/12");
+      var expectedDate = new Date("01/01/12");
+      testFirstDay(initialDate, expectedDate);
+    });
+
+    test("Should return first day of month", function () {
+      var initialDate = new Date("01/12/12");
+      var expectedDate = new Date("01/01/12");
+      testFirstDay(initialDate, expectedDate);
+    });
+
+    test("Should return last day of month", function () {
+      var initialDate = new Date("01/05/12");
+      var expectedDate = new Date("01/31/12");
+      testLastDay(initialDate, expectedDate);
+    });
+
+    test("Should return last day of month", function () {
+      var initialDate = new Date("12/05/12");
+      var expectedDate = new Date("12/31/12");
+      testLastDay(initialDate, expectedDate);
+    });
+
+
+    test("Should return last day of month", function () {
+      var initialDate = new Date("12/24/99");
+      var expectedDate = new Date("12/31/99");
+      testLastDay(initialDate, expectedDate);
+    });
+
+     
+    function testLastDay(input, expectedDate) {
+      var actualDate = helper.getLastDayOfMonth(input);
+
+      notEqual(actualDate, expectedDate, input.toString() + " returns " + expectedDate.toString());
+      same(actualDate, expectedDate, input.toString() + " returns " + expectedDate.toString());
+      equals(actualDate.toString(), expectedDate.toString(), input.toString() + " returns " + actualDate.toString());
+    };
+
+
+    function testFirstDay(input, expectedDate) {
+      var actualDate = helper.getFirstDayOfMonth(input);
+
+      notEqual(actualDate, expectedDate, input.toString() + " returns " + expectedDate.toString());
+      same(actualDate, expectedDate, input.toString() + " returns " + expectedDate.toString());
+      equals(actualDate.toString(), expectedDate.toString(), input.toString() + " returns " + actualDate.toString());
+    };
+
+
+  });
+</script>

@@ -1,0 +1,59 @@
+﻿<div id="less-panel">
+  <div id="less-controls">
+    <a href="http://lesscss.org" target="_blank">LessCSS.org</a>
+    <button id="apply-style">
+      Apply</button>
+  </div>
+  <div id="editor" style="background: #eee;">
+    <textarea id="lessEditor" name="lessEditor" rows="5" cols="100">
+@@color1: #414444;
+@@color2: lighten(@@color1, 50%);
+.test { color: @@color1; }   
+.test2 { color: @@color2; }    
+   </textarea>
+  </div>
+  <br />
+  <br />
+  <div id="outpus" style="background: #eee;">
+    <textarea id="cssOutput" name="cssOutput" rows="5" cols="100">
+   </textarea>
+  </div>
+</div>
+<div>
+  @section pageScripts
+{
+    @if (false)
+    {
+    <script type="text/javascript" src="../../Content/lib/jquery/jquery-1.7.1-vsdoc.js"></script>
+    }
+    <script type="text/javascript">
+      $(function () {
+        var lessEditor = CodeMirror.fromTextArea(document.getElementById("lessEditor"), {});
+        var cssOutput = CodeMirror.fromTextArea(document.getElementById("cssOutput"), {});
+
+        $("#apply-style").click(function () {
+          // Get editor text
+          var editorText = lessEditor.getValue();
+          // Parse 
+          less.Parser().parse(editorText, function (error, root) {
+            if (!(error)) {
+              // Convert to CSS
+              var convertedCss = root.toCSS();
+              // Apply css to window
+              cssOutput.setValue(convertedCss);
+            } else {
+              var msg = "";
+              $.each(error, function (index, element) {
+                 if(element) {
+                   msg = msg + element.toString() + '\n';    
+                 }
+                
+              });
+              cssOutput.setValue(msg);
+            }
+          });
+        });
+      });
+    </script>
+  }
+</div>

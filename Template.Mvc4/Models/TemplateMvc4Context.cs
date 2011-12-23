@@ -26,5 +26,9 @@ namespace Template.Mvc4.Models
        public DbSet<Template.Mvc4.Models.Purchase> Purchases { get; set; }
 
        public DbSet<Template.Mvc4.Models.Store> Stores { get; set; }
+
+       public DbSet<Template.Mvc4.Models.PurchaseTest> PurchaseTests { get; set; }
+
+       public DbSet<Template.Mvc4.Models.Task> Tasks { get; set; }
     }
 }

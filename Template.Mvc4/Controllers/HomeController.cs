@@ -49,5 +49,9 @@ namespace Template.Mvc4.Controllers
         return View();
       }
 
+      public ActionResult LessEditor()
+      {
+        return View();
+      }
    }
 }

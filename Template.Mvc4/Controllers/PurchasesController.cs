@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Template.Mvc4.Models;
+using Template.Mvc4.Repositories;
 
 namespace Template.Mvc4.Controllers
 {   

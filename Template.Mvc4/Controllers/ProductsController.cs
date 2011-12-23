@@ -4,21 +4,22 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Template.Mvc4.Models;
+using Template.Mvc4.Repositories;
 
 namespace Template.Mvc4.Controllers
 {
   public class ProductsController : Controller
   {
-    private readonly ICategoryRepository _categoryRepository;
+    private readonly GenericRepository<Category> _categoryRepository;
     private readonly IProductRepository _productRepository;
 
     // If you are using Dependency Injection, you can delete the following constructor
     public ProductsController()
-      : this(new CategoryRepository(), new ProductRepository())
+      : this(new GenericRepository<Category>(), new ProductRepository())
     {
     }
 
-    public ProductsController(ICategoryRepository categoryRepository, IProductRepository productRepository)
+    public ProductsController(GenericRepository<Category> categoryRepository, IProductRepository productRepository)
     {
       this._categoryRepository = categoryRepository;
       this._productRepository = productRepository;

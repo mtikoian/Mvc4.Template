@@ -1,23 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Linq.Expressions;
 using System.Data.Entity;
 using System.Data;
+using Template.Mvc4.Models;
 
-namespace Template.Mvc4.Models
+namespace Template.Mvc4.Repositories
 {
-  public class Repository<T> : IRepository<T> where T: ModelBase
+  public class GenericRepository<T> : IRepository<T> where T: ModelBase
   {
     private readonly TemplateMvc4Context _context = new TemplateMvc4Context();
 
-    public IQueryable<T> All
+    public virtual IQueryable<T> All
     {
       get { return _context.Set<T>(); }
     }
 
-    public IQueryable<T> AllIncluding(params Expression<Func<T, object>>[] includeProperties)
+    public virtual IQueryable<T> AllIncluding(params Expression<Func<T, object>>[] includeProperties)
     {
       IQueryable<T> query = _context.Set<T>();
       foreach (var includeProperty in includeProperties)
@@ -27,12 +26,12 @@ namespace Template.Mvc4.Models
       return query;
     }
 
-    public T Find(int id)
+    public virtual T Find(int id)
     {
       return _context.Set<T>().Find(id);
     }
 
-    public void InsertOrUpdate(T entity)
+    public virtual void InsertOrUpdate(T entity)
     {
       entity.ModifyDate = DateTime.Now;
       if (entity.Id == default(int))
@@ -47,13 +46,13 @@ namespace Template.Mvc4.Models
       }
     }
 
-    public void Delete(int id)
+    public virtual void Delete(int id)
     {
       var entity = _context.Set<T>().Find(id);
       _context.Set<T>().Remove(entity);
     }
 
-    public void Save()
+    public virtual void Save()
     {
       _context.SaveChanges();
     }

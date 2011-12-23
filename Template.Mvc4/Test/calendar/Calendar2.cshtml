@@ -1,0 +1,216 @@
+﻿@{
+  Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width" />
+  <link href="/Content/calendar.less" rel="stylesheet" type="text/css" />
+  <link href="http://static.jquery.com/ui/css/base2.css" rel="stylesheet" type="text/css" />
+  <script src="/Content/lib/jquery/jquery-1.7.1.js" type="text/javascript"></script>
+  <title>Index</title>
+</head>
+<body>
+  <div id="calendar">
+    <input type="date" id="date-input" value="" />
+    <div class="navigation">
+      <div class="move previous">
+        &lt;
+      </div>
+      <div class="month">
+        Month
+      </div>
+      <div class="move next">
+        &gt;
+      </div>
+    </div>
+    <div class="day_container">
+      <div class="day previous_month">
+        &nbsp</div>
+      <div class="day previous_month">
+        &nbsp</div>
+      <div class="day previous_month">
+        &nbsp</div>
+      <div class="day previous_month">
+        &nbsp</div>
+      <div class="day previous_month">
+        &nbsp</div>
+      <div class="day previous_month">
+        &nbsp</div>
+      <div class="day current_month">
+        1</div>
+      <div class="day current_month">
+        2</div>
+      <div class="day current_month">
+        3</div>
+      <div class="day current_month">
+        4</div>
+      <div class="day current_month">
+        5</div>
+      <div class="day current_month">
+        6</div>
+      <div class="day current_month">
+        7</div>
+      <div class="day current_month">
+        8</div>
+      <div class="day current_month">
+        9</div>
+      <div class="day current_month">
+        10</div>
+      <div class="day current_month">
+        11</div>
+      <div class="day current_month">
+        12</div>
+      <div class="day current_month">
+        13</div>
+      <div class="day current_month">
+        14</div>
+      <div class="day current_month">
+        15</div>
+      <div class="day current_month">
+        16</div>
+      <div class="day current_month">
+        17</div>
+      <div class="day current_month">
+        18</div>
+      <div class="day current_month">
+        19</div>
+      <div class="day current_month">
+        20</div>
+      <div class="day current_month">
+        21</div>
+      <div class="day current_month">
+        22</div>
+      <div class="day current_month">
+        23</div>
+      <div class="day current_month">
+        24</div>
+      <div class="day current_month">
+        25</div>
+      <div class="day current_month">
+        26</div>
+      <div class="day current_month">
+        27</div>
+      <div class="day current_month">
+        28</div>
+      <div class="day current_month">
+        29</div>
+      <div class="day current_month">
+        30</div>
+      <div class="day current_month">
+        31</div>
+      <div class="day next_month">
+        &nbsp</div>
+      <div class="day next_month">
+        &nbsp</div>
+      <div class="day next_month">
+        &nbsp</div>
+      <div class="day next_month">
+        &nbsp</div>
+      <div class="day next_month">
+        &nbsp</div>
+      <div class="day next_month">
+        &nbsp</div>
+    </div>
+  </div>
+  <script src="/Content/lib/jquery/jquery-ui-1.8.16.js" type="text/javascript"></script>
+  <script type="text/javascript">
+
+    jQuery(function () {
+      var $ = jQuery;
+      var SS = null || {};
+
+      SS.DateHelper = function () {
+        this.getFirstDayOfMonth = function (date) {
+          var d = new Date(date);
+          d.setDate(1);
+          return d;
+        };
+        this.getLastDayOfMonth = function (date) {
+          var d = new Date(date);
+          d.setMonth(date.getMonth() + 1);
+          d.setDate(0);
+          return d;
+        };
+      };
+
+      SS.CalendarHelper = function () {
+        this.remove_extra_trailing_day_spaces = function (last_day) {
+          $(".day.next_month").css('display', 'inline-block');
+          for (i = 0; i < last_day; i = i + 1) {
+            $(".day.next_month")[i].style.display = 'none';
+          }
+        };
+
+        this.remove_extra_trailing_dates = function (last_date) {
+          $(".day.current_month").css('display', 'inline-block');
+          for (i = 31; i > last_date; i = i - 1) {
+            $(".day.current_month")[i - 1].style.display = 'none';
+          }
+        };
+
+        this.remove_extra_leading_day_spaces = function (first_day) {
+          $(".day.previous_month").css('display', 'inline-block');
+          for (i = 0; i < 6 - first_day; i = i + 1) {
+            $(".day.previous_month")[i].style.display = 'none';
+          }
+        };
+
+        var month = new Array(12);
+        month[0] = "January";
+        month[1] = "February";
+        month[2] = "March";
+        month[3] = "April";
+        month[4] = "May";
+        month[5] = "June";
+        month[6] = "July";
+        month[7] = "August";
+        month[8] = "September";
+        month[9] = "October";
+        month[10] = "November";
+        month[11] = "December";
+
+        this.setCalendar = function (date) {
+          $('#calendar #date-input').val(date.toLocaleString());
+          $('#calendar').css('visibility', 'hidden');
+          $("#calendar .day").removeClass('selected');
+          var dateHelper = new SS.DateHelper();
+
+          var first_day = dateHelper.getFirstDayOfMonth(date).getDay();
+          var last_date = dateHelper.getLastDayOfMonth(date);
+          var last_day = last_date.getDay();
+
+          $('#calendar .month').html(month[last_date.getMonth()] + ' - ' + last_date.getFullYear());
+
+          this.remove_extra_leading_day_spaces(first_day);
+          this.remove_extra_trailing_dates(last_date.getDate());
+          this.remove_extra_trailing_day_spaces(last_day);
+
+          $('#calendar').css('visibility', 'visible');
+        };
+      };
+
+      var calendar_helper = new SS.CalendarHelper();
+      var first_of_this_month = new Date(new Date().setDate(1));
+      calendar_helper.setCalendar(first_of_this_month);
+
+      $('#calendar .navigation .move.next').click(function () {
+        var currentSetting = new Date($('#calendar #date-input').val());
+        currentSetting.setMonth(currentSetting.getMonth() + 1);
+        calendar_helper.setCalendar(currentSetting);
+      });
+
+      $('#calendar .navigation .move.previous').click(function () {
+        var currentSetting = new Date($('#calendar #date-input').val());
+        currentSetting.setMonth(currentSetting.getMonth() - 1);
+        calendar_helper.setCalendar(currentSetting);
+      });
+
+      $(".day.current_month").click(function () {
+        $(".day").removeClass('selected');
+        $(this).addClass('selected');
+      });
+    });
+  </script>
+</body>
+</html>

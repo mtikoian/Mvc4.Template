@@ -14,9 +14,9 @@
     @Html.LabelFor(model => model.ModifyDate)
 </div>
 <div class="editor-field">
-    @Html.EditorFor(model => model.ModifyDate)
+    @Html.DisplayFor(model => model.ModifyDate) &nbsp
     @Html.ValidationMessageFor(model => model.ModifyDate)
-</div>
+</div><br />
 
 <div class="editor-label">
     @Html.LabelFor(model => model.Price)

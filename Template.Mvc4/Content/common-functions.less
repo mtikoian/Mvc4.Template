@@ -1,0 +1,44 @@
+﻿.clear_margin_padding() {
+    margin: 0 !important; 
+    padding: 0 !important; 
+    padding-left: 0px !important; 
+    padding-right: 0px !important; 
+}
+
+.rounded-corners (@radius: 5px) {
+  border-radius: @radius;
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+}
+
+.rounded-corners-each (@lefttop: 5px, @righttop: 5px, @rightbottom: 5px, @leftbottom: 5px) {
+  border-top-left-radius: @lefttop;
+  -webkit-top-left-right-radius: @lefttop;
+  -moz-border-radius-topleft: @lefttop;
+
+  border-top-right-radius: @righttop;
+  -webkit-border-top-right-radius: @righttop;
+  -moz-border-radius-topright: @righttop;
+
+  border-bottom-right-radius: @rightbottom;
+  -webkit-border-bottom-right-radius: @rightbottom;
+  -moz-border-radius-bottomright: @rightbottom;
+
+  border-bottom-left-radius: @leftbottom;
+  -webkit-border-bottom-left-radius: @leftbottom;
+  -moz-border-radius-bottomleft: @leftbottom;
+}
+
+.box-shadow (@x: 0, @y: 0, @blur: 1px, @alpha) {
+  @val: @x @y @blur rgba(0, 0, 0, @alpha);
+
+  box-shadow:         @val;
+  -webkit-box-shadow: @val;
+  -moz-box-shadow:    @val;
+}
+
+.box (@base: #f938ab){ 
+  color:        saturate(@base, 5%);
+  border-color: lighten(@base, 30%);
+  div { .box-shadow(0, 0, 5px, 0.4) }
+}

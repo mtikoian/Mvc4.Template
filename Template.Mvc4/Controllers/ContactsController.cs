@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Template.Mvc4.Models;
+using Template.Mvc4.Repositories;
 
 namespace Template.Mvc4.Controllers
 {
@@ -14,7 +15,7 @@ namespace Template.Mvc4.Controllers
     #region -- Constructor --
     
     public ContactsController()
-      : this(new Repository<Contact>())
+      : this(new GenericRepository<Contact>())
     {
       // If you are using Dependency Injection, you can delete the following constructor
     }

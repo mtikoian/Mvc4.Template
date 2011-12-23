@@ -4,6 +4,7 @@ using System.Linq;
 using System.ServiceModel.Web;
 using System.Web;
 using Template.Mvc4.Models;
+using Template.Mvc4.Repositories;
 
 namespace Template.Mvc4.Api
 {
@@ -14,7 +15,7 @@ namespace Template.Mvc4.Api
     #region -- Constructor --
     
     public ContactsApi()
-      : this(new Repository<Contact>())
+      : this(new GenericRepository<Contact>())
     {
       // If you are using Dependency Injection, you can delete the following constructor
     }

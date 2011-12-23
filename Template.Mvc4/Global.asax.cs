@@ -56,8 +56,6 @@ namespace Template.Mvc4
     [Conditional("DEBUG")]
     private void SetDbInit()
     {
-      SetDbInit();
-
       Database.SetInitializer(new DropCreateDatabaseIfModelChanges<TemplateMvc4Context>());
       Database.SetInitializer(new CreateDatabaseIfNotExists<TemplateMvc4Context>());
     }
