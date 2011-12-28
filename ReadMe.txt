@@ -23,15 +23,14 @@ web.config
 ----------
   <system.web>
     <httpHandlers>
-      <add verb="*" path="*.js"
+      <add verb="GET" path="*.js"
          type="System.Web.StaticFileHandler" />
-    </httpHandlers>
-  </system.web>
 
   <system.webServer>
     <handlers>
       <remove name="JavascriptFileHandler"/>
       <add name="JavascriptFileHandler" verb="GET" path="*.js" resourceType="File" type="System.Web.StaticFileHandler" />
-    </handlers>
-  </system.webServer>
 
+web.release.config
+  <system.web>
+    <customErrors mode="Off" xdt:Transform="Replace"></customErrors>
