@@ -18,3 +18,20 @@ LESS
 ----
 Change the "Build Action" of all less files to "Content" from "None"
 
+
+web.config
+----------
+  <system.web>
+    <httpHandlers>
+      <add verb="*" path="*.js"
+         type="System.Web.StaticFileHandler" />
+    </httpHandlers>
+  </system.web>
+
+  <system.webServer>
+    <handlers>
+      <remove name="JavascriptFileHandler"/>
+      <add name="JavascriptFileHandler" verb="GET" path="*.js" resourceType="File" type="System.Web.StaticFileHandler" />
+    </handlers>
+  </system.webServer>
+
